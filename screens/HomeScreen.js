@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { WebBrowser, Font } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
@@ -114,6 +114,8 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 30,
     marginTop: 20,
+    fontFamily: 'cinzel',
+
   },
   getStartedContainer: {
     alignItems: 'center',
