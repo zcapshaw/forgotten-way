@@ -34,7 +34,6 @@ const LinksStack = createStackNavigator({
   * Changed label from 'Links' to 'Lessons' below
   * At some point we should clean up the file names and classes that refer to 'Links'
 */
-
 LinksStack.navigationOptions = {
   tabBarLabel: 'Lessons',
   tabBarIcon: ({ focused }) => (
@@ -53,9 +52,8 @@ const SettingsStack = createStackNavigator({
 
 /*
   * Changed label from 'Settings' to 'Meditations' below
-  * At some point we should clean up the file names and classes that refer to 'Links'
+  * At some point we should clean up the file names and classes that refer to 'Settings'
 */
-
 SettingsStack.navigationOptions = {
   tabBarLabel: 'Meditations',
   tabBarIcon: ({ focused }) => (
@@ -72,6 +70,10 @@ const AccountStack = createStackNavigator({
   Settings: SettingsScreen,
 });
 
+/*
+  * Added 4th icon with Account listed
+  * At some point we should clean up the file names and classes that refer to 'Settings'
+*/
 AccountStack.navigationOptions = {
   tabBarLabel: 'Account',
   tabBarIcon: ({ focused }) => (
