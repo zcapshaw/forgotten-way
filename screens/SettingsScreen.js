@@ -1,9 +1,12 @@
 import React from 'react';
 import { ExpoConfigView } from '@expo/samples';
 
+/* Changed title from 'app.json' to 'Meditations'
+  * We should go back and update all the file names and classes too */
+
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
-    title: 'app.json',
+    title: 'Meditations',
   };
 
   render() {

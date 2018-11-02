@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import { WebBrowser, Font } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
@@ -22,14 +22,7 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
+            <Text style={styles.welcomeText}>THE FORGOTTEN WAY</Text>
           </View>
 
           <View style={styles.getStartedContainer}>
@@ -118,12 +111,11 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
   },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
+  welcomeText: {
+    fontSize: 30,
+    marginTop: 20,
+    fontFamily: 'cinzel',
+
   },
   getStartedContainer: {
     alignItems: 'center',
