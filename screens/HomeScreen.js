@@ -105,13 +105,14 @@ const styles = StyleSheet.create({
   },
   sectionLabel: {
     fontSize: 12,
-    fontWeight: 'bold',
+    fontFamily: 'lato-black',
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
   },
   quoteText: {
     fontSize: 17,
+    fontFamily: 'lato-regular',
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'left',
