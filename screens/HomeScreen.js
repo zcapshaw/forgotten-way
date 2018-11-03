@@ -25,24 +25,21 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.welcomeText}>THE FORGOTTEN WAY</Text>
           </View>
 
-          <View style={styles.getStartedContainer}>
-
-            <Text style={styles.getStartedText}>DAILY QUOTE</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
+          <View style={styles.dailyQuoteLabel}>
+            <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
           </View>
 
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
+          <View style={styles.dailyQuoteContainer}>
+            <Text style={styles.quoteText}>
+              It is written that in the last days
+              the earth will tremble at the goodness
+              of God. So then I ask you, what kind of
+              goodness would make you weak in the knees
+              with gratitude and awe?
+              {'\n'}― Ted Dekker
+              </Text>
           </View>
+
         </ScrollView>
 
         <View style={styles.tabBarInfoContainer}>
@@ -55,18 +52,10 @@ export default class HomeScreen extends React.Component {
       </View>
     );
   }
-
-  _handleLearnMorePress = () => {
-    WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  };
-
-  _handleHelpPress = () => {
-    WebBrowser.openBrowserAsync(
-      'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-    );
-  };
 }
 
+
+// Need to go through and remove unused styles that came with the template
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -93,9 +82,15 @@ const styles = StyleSheet.create({
     fontFamily: 'cinzel',
 
   },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
+  dailyQuoteLabel: {
+    alignItems: 'flex-start',
+    marginHorizontal: 25,
+    marginTop: 10
+  },
+  dailyQuoteContainer: {
+    alignItems: 'flex-start',
+    marginVertical: 10,
+    backgroundColor: '#EFEFEF',
   },
   homeScreenFilename: {
     marginVertical: 7,
@@ -108,11 +103,20 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     paddingHorizontal: 4,
   },
-  getStartedText: {
-    fontSize: 17,
+  sectionLabel: {
+    fontSize: 12,
+    fontWeight: 'bold',
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
+  },
+  quoteText: {
+    fontSize: 17,
+    color: 'rgba(96,100,109, 1)',
+    lineHeight: 24,
+    textAlign: 'left',
+    paddingHorizontal: 25,
+    paddingVertical: 10,
   },
   tabBarInfoContainer: {
     position: 'absolute',
