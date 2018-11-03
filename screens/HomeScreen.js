@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
         elevation: 20,
       },
     }),
-    alignItems: 'center',
     backgroundColor: '#fff',
     paddingVertical: 10,
   },
