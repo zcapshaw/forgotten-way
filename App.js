@@ -40,6 +40,10 @@ export default class App extends React.Component {
         // to remove this if you are not using it in your app
         'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
         'cinzel': require('./assets/fonts/Cinzel-Regular.ttf'),
+        'lato-bold': require('./assets/fonts/Lato-Bold.ttf'),
+        'lato-light': require('./assets/fonts/Lato-Light.ttf'),
+        'lato-regular': require('./assets/fonts/Lato-Regular.ttf'),
+        'lato-black': require('./assets/fonts/Lato-Black.ttf'),
       }),
     ]);
   };

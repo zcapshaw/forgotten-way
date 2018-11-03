@@ -13,7 +13,7 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'HOME',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -35,7 +35,7 @@ const LinksStack = createStackNavigator({
   * At some point we should clean up the file names and classes that refer to 'Links'
 */
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Lessons',
+  tabBarLabel: 'LESSONS',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -55,7 +55,7 @@ const SettingsStack = createStackNavigator({
   * At some point we should clean up the file names and classes that refer to 'Settings'
 */
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Meditations',
+  tabBarLabel: 'MEDITATIONS',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -75,7 +75,7 @@ const AccountStack = createStackNavigator({
   * At some point we should clean up the file names and classes that refer to 'Settings'
 */
 AccountStack.navigationOptions = {
-  tabBarLabel: 'Account',
+  tabBarLabel: 'ACCOUNT',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}

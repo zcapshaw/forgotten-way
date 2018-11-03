@@ -2,6 +2,9 @@ import React from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
+/* Changed title from 'Links' to 'Lessons'
+  * We should go back and update all the file names and classes too */
+
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
     title: 'Lessons',
