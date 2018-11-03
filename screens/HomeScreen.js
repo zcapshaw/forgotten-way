@@ -73,12 +73,23 @@ const styles = StyleSheet.create({
   },
   welcomeContainer: {
     alignItems: 'center',
-    marginTop: 10,
     marginBottom: 20,
+    ...Platform.select({
+      ios: {
+        shadowColor: 'black',
+        shadowOffset: { height: 3 },
+        shadowOpacity: 0.1,
+        shadowRadius: 3,
+      },
+      android: {
+        elevation: 20,
+      },
+    }),
+    backgroundColor: '#fff',
+    paddingVertical: 10,
   },
   welcomeText: {
     fontSize: 30,
-    marginTop: 20,
     fontFamily: 'cinzel',
 
   },
