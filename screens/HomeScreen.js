@@ -20,12 +20,11 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Text style={styles.welcomeText}>THE FORGOTTEN WAY</Text>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>THE FORGOTTEN WAY</Text>
           </View>
-
-          <View style={styles.dailyQuoteLabel}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.sectionLabelContainer}>
             <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
           </View>
 
@@ -46,8 +45,6 @@ export default class HomeScreen extends React.Component {
   }
 }
 
-
-// Need to go through and remove unused styles that came with the template
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -56,9 +53,12 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 30,
   },
-  welcomeContainer: {
+  titleContainer: {
     alignItems: 'center',
-    marginBottom: 20,
+    paddingTop: 35,
+    paddingBottom: 10,
+    marginBottom: 7,
+    backgroundColor: '#fff',
     ...Platform.select({
       ios: {
         shadowColor: 'black',
@@ -70,29 +70,27 @@ const styles = StyleSheet.create({
         elevation: 20,
       },
     }),
-    backgroundColor: '#fff',
-    paddingVertical: 10,
   },
-  welcomeText: {
+  titleText: {
     fontSize: 30,
     fontFamily: 'cinzel',
   },
-  dailyQuoteLabel: {
+  sectionLabelContainer: {
     alignItems: 'flex-start',
     marginHorizontal: 25,
     marginTop: 10
   },
-  dailyQuoteContainer: {
-    alignItems: 'flex-start',
-    marginVertical: 10,
-    backgroundColor: '#EFEFEF',
-  },
-  sectionLabel: {
+   sectionLabel: {
     fontSize: 12,
     fontFamily: 'lato-black',
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
+  },
+  dailyQuoteContainer: {
+    alignItems: 'flex-start',
+    marginVertical: 10,
+    backgroundColor: '#EFEFEF',
   },
   quoteText: {
     fontSize: 17,
