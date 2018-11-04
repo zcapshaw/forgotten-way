@@ -25,7 +25,7 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.titleText}>THE FORGOTTEN WAY</Text>
           </View>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          
+
           <View style={styles.sectionLabelContainer}>
             <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
           </View>
@@ -42,11 +42,11 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.sectionLabelContainer}>
-            <Text style={styles.sectionLabel}>CHAPTERS</Text>
+            <Text style={styles.sectionLabel}>NEXT CHAPTER</Text>
           </View>
 
           <View style={styles.sectionLabelContainer}>
-            <Text style={styles.sectionLabel}>COMMENTARY</Text>
+            <Text style={styles.sectionLabel}>COMMENTARIES</Text>
           </View>
 
           <View style={styles.contentContainer}>

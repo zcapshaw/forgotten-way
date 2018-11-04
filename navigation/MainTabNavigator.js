@@ -35,7 +35,7 @@ const LinksStack = createStackNavigator({
   * At some point we should clean up the file names and classes that refer to 'Links'
 */
 LinksStack.navigationOptions = {
-  tabBarLabel: 'LESSONS',
+  tabBarLabel: 'CHAPTERS',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
@@ -55,40 +55,20 @@ const SettingsStack = createStackNavigator({
   * At some point we should clean up the file names and classes that refer to 'Settings'
 */
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'MEDITATIONS',
+  tabBarLabel: 'COMMENTARIES',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={Platform.OS === 'ios'
-      ? `ios-eye${focused ? '' : '-outline'}`
-      : 'md-eye'}
+      ? `ios-headset${focused ? '' : '-outline'}`
+      : 'md-headset'}
     />
   ),
 };
 
-const AccountStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
-
-/*
-  * Added 4th icon with Account listed
-  * At some point we should clean up the file names and classes that refer to 'Settings'
-*/
-AccountStack.navigationOptions = {
-  tabBarLabel: 'ACCOUNT',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios'
-      ? `ios-person${focused ? '' : '-outline'}`
-      : 'md-person'}
-    />
-  ),
-};
 
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
-  AccountStack,
 });
