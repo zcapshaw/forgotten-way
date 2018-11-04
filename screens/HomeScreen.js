@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  FlatList,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -20,12 +21,12 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Text style={styles.welcomeText}>THE FORGOTTEN WAY</Text>
+          <View style={styles.titleContainer}>
+            <Text style={styles.titleText}>THE FORGOTTEN WAY</Text>
           </View>
-
-          <View style={styles.dailyQuoteLabel}>
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          
+          <View style={styles.sectionLabelContainer}>
             <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
           </View>
 
@@ -40,40 +41,49 @@ export default class HomeScreen extends React.Component {
               </Text>
           </View>
 
-        </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
+          <View style={styles.sectionLabelContainer}>
+            <Text style={styles.sectionLabel}>CHAPTERS</Text>
           </View>
-        </View>
+
+          <View style={styles.sectionLabelContainer}>
+            <Text style={styles.sectionLabel}>COMMENTARY</Text>
+          </View>
+
+          <View style={styles.contentContainer}>
+            <FlatList
+              data={[
+                  {key: 'First\nCore Truth'},
+                  {key: 'Second\nCore Truth'},
+                  {key: 'Third\nCore Truth'},
+                  {key: 'Fourth\nCore Truth'},
+                  {key: 'Fifth\nCore Truth'},
+                ]}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+            />
+          </View>
+
+        </ScrollView>
       </View>
     );
   }
 }
 
-
-// Need to go through and remove unused styles that came with the template
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 10,
   },
-  welcomeContainer: {
+  titleContainer: {
     alignItems: 'center',
-    marginBottom: 20,
+    paddingTop: 35,
+    paddingBottom: 10,
+    marginBottom: 7,
+    backgroundColor: '#fff',
     ...Platform.select({
       ios: {
         shadowColor: 'black',
@@ -85,41 +95,27 @@ const styles = StyleSheet.create({
         elevation: 20,
       },
     }),
-    backgroundColor: '#fff',
-    paddingVertical: 10,
   },
-  welcomeText: {
+  titleText: {
     fontSize: 30,
     fontFamily: 'cinzel',
-
   },
-  dailyQuoteLabel: {
+  sectionLabelContainer: {
     alignItems: 'flex-start',
     marginHorizontal: 25,
     marginTop: 10
   },
-  dailyQuoteContainer: {
-    alignItems: 'flex-start',
-    marginVertical: 10,
-    backgroundColor: '#EFEFEF',
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  sectionLabel: {
+   sectionLabel: {
     fontSize: 12,
     fontFamily: 'lato-black',
     color: 'rgba(96,100,109, 1)',
     lineHeight: 24,
     textAlign: 'center',
+  },
+  dailyQuoteContainer: {
+    alignItems: 'flex-start',
+    marginVertical: 10,
+    backgroundColor: '#EFEFEF',
   },
   quoteText: {
     fontSize: 17,
@@ -130,43 +126,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     paddingVertical: 10,
   },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
+  item: {
+    marginHorizontal: 10,
+    padding: 10,
+    width: 150,
+    height: 150,
+    borderRadius: 7,
+    borderWidth: 1,
+    borderColor: '#fff',
+    overflow: 'hidden',
+    backgroundColor: '#33adff',
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'lato-black',
+  }
 });
