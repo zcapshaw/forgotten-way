@@ -8,6 +8,23 @@ import { ScrollView, StyleSheet, FlatList, Text, Platform } from 'react-native';
 export default class LinksScreen extends React.Component {
   static navigationOptions = {
     title: 'CHAPTERS',
+    headerStyle: {
+      ...Platform.select({
+        ios: {
+          shadowColor: 'black',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 20,
+        },
+      }),
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+      fontFamily: 'cinzel',
+    },
   };
 
   render() {
