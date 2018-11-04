@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  FlatList,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -24,6 +25,7 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.titleText}>THE FORGOTTEN WAY</Text>
           </View>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+          
           <View style={styles.sectionLabelContainer}>
             <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
           </View>
@@ -39,6 +41,29 @@ export default class HomeScreen extends React.Component {
               </Text>
           </View>
 
+          <View style={styles.sectionLabelContainer}>
+            <Text style={styles.sectionLabel}>CHAPTERS</Text>
+          </View>
+
+          <View style={styles.sectionLabelContainer}>
+            <Text style={styles.sectionLabel}>COMMENTARY</Text>
+          </View>
+
+          <View style={styles.contentContainer}>
+            <FlatList
+              data={[
+                  {key: 'First\nCore Truth'},
+                  {key: 'Second\nCore Truth'},
+                  {key: 'Third\nCore Truth'},
+                  {key: 'Fourth\nCore Truth'},
+                  {key: 'Fifth\nCore Truth'},
+                ]}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+              renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+            />
+          </View>
+
         </ScrollView>
       </View>
     );
@@ -51,7 +76,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 10,
   },
   titleContainer: {
     alignItems: 'center',
@@ -101,4 +126,19 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     paddingVertical: 10,
   },
+  item: {
+    marginHorizontal: 10,
+    padding: 10,
+    width: 150,
+    height: 150,
+    borderRadius: 7,
+    borderWidth: 1,
+    borderColor: '#fff',
+    overflow: 'hidden',
+    backgroundColor: '#33adff',
+    color: '#fff',
+    fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'lato-black',
+  }
 });
