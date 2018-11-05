@@ -33,8 +33,11 @@ export default class LinksScreen extends React.Component {
         <FlatList
           contentContainerStyle={styles.flatList}
           data={[
-            { key: 'Chapter 1: Awesome Chapter' },
-            { key: 'Chapter 2: Radical Chapter' },
+            /* hardcoded checkmarks into 1st 2 chapter titles
+            Need to figure out how to add right-aligned icons to
+            FlatList items */
+            { key: 'Chapter 1: Awesome Chapter     ☑️' },
+            { key: 'Chapter 2: Radical Chapter           ☑️' },
             { key: 'Chapter 3: Tubular Chapter' },
             { key: 'Chapter 4: Incredible Chapter' },
             { key: 'Chapter 5: Ridiculous Chapter' },
@@ -45,7 +48,14 @@ export default class LinksScreen extends React.Component {
             { key: 'Chapter 10: Sparkling Chapter' },
             { key: 'Chapter 11: Magnificent Chapter' }
           ]}
-          renderItem={({ item }) => <Text style={styles.item}>{ item.key }</Text>}
+
+          /* Function below adds conditional formatting to chapters
+          based on position in the list */
+          renderItem={({ item, index }) => {
+            if (index < 2) return <Text style={styles.itemComplete}>{ item.key }</Text>;
+            return <Text style={styles.item}>{ item.key }</Text>;
+          }
+        }
         />
       </ScrollView>
     );
@@ -84,6 +94,17 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 20,
     fontFamily: 'lato-black',
-
+  },
+  itemComplete: {
+    paddingVertical: 30,
+    paddingLeft: 10,
+    marginVertical: 10,
+    width: 350,
+    borderRadius: 7,
+    overflow: 'hidden',
+    backgroundColor: '#B6C9D7',
+    color: '#fff',
+    fontSize: 20,
+    fontFamily: 'lato-black',
   }
 });
