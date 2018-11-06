@@ -15,15 +15,29 @@ import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    title: 'THE FORGOTTEN WAY',
+    headerStyle: {
+      ...Platform.select({
+        ios: {
+          shadowColor: 'black',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 20,
+        },
+      }),
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+      fontFamily: 'cinzel',
+    },
   };
 
   render() {
     return (
       <View style={styles.container}>
-          <View style={styles.titleContainer}>
-            <Text style={styles.titleText}>THE FORGOTTEN WAY</Text>
-          </View>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
 
           <View style={styles.sectionLabelContainer}>
@@ -77,28 +91,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 10,
-  },
-  titleContainer: {
-    alignItems: 'center',
-    paddingTop: 35,
-    paddingBottom: 10,
-    marginBottom: 7,
-    backgroundColor: '#fff',
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: 3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-  },
-  titleText: {
-    fontSize: 30,
-    fontFamily: 'cinzel',
   },
   sectionLabelContainer: {
     alignItems: 'flex-start',
