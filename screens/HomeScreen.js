@@ -10,7 +10,8 @@ import {
   View,
   ImageBackground
 } from 'react-native';
-import { WebBrowser, Font } from 'expo';
+import { WebBrowser, Font, Icon } from 'expo';
+import { Ionicons } from '@expo/vector-icons';
 
 import { MonoText } from '../components/StyledText';
 
@@ -62,14 +63,20 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.nextChapter}>
           <ImageBackground
-          source={{ uri: 'https://images.unsplash.com/photo-1424819827928-55f0c8497861?fit=crop&w=600&h=600' }}
+          source={{ uri: 'https://images.unsplash.com/photo-1541627845349-e6d337eadafa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=eed9ac5a86b07bdb3b4df6d8d4f402b6&auto=format&fit=crop&w=500&q=60' }}
           style={styles.image}
           >
-            <Text
-              size={18}
-              style={styles.paragraph}
-            >
-              TITLE
+            <Icon.Ionicons
+              name="ios-play"
+              size={80}
+              color="white"
+              style={styles.chapterPlay}
+            />
+            <Text style={styles.chapterLabel}>
+              Chapter 3
+            </Text>
+            <Text style={[styles.chapterLabel, styles.subtext]}>
+              The Path of Yeshua
             </Text>
             </ImageBackground>
           </View>
@@ -87,7 +94,7 @@ export default class HomeScreen extends React.Component {
                   { key: 'Fourth\nCore Truth' },
                   { key: 'Fifth\nCore Truth' },
                 ]}
-              horizontal={true}
+              horizontal
               showsHorizontalScrollIndicator={false}
               renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
             />
@@ -110,7 +117,7 @@ const styles = StyleSheet.create({
   sectionLabelContainer: {
     alignItems: 'flex-start',
     marginHorizontal: 25,
-    marginTop: 10
+    marginTop: 15
   },
    sectionLabel: {
     fontSize: 12,
@@ -135,24 +142,32 @@ const styles = StyleSheet.create({
   },
   nextChapter: {
     flex: 1,
-    alignItems: 'stretch',
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-  },
-  image: {
-    flexGrow: 1,
-    height: null,
-    width: null,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 10,
   },
-  paragraph: {
-    margin: 24,
-    fontSize: 48,
-    fontWeight: 'bold',
+  image: {
+    flex: 1,
+    height: null,
+    width: 325,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 7,
+    borderWidth: 5,
+  },
+  chapterPlay: {
+    marginTop: 20,
+  },
+  chapterLabel: {
+    fontSize: 22,
+    fontFamily: 'lato-black',
     textAlign: 'center',
     color: 'white',
-    backgroundColor: 'transparent',
+  },
+  subtext: {
+    fontSize: 16,
+    marginBottom: 20,
+    fontFamily: 'lato-regular',
   },
   item: {
     marginHorizontal: 10,
