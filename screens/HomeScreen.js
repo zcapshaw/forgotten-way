@@ -139,12 +139,12 @@ const styles = StyleSheet.create({
   dailyQuoteContainer: {
     alignItems: 'flex-start',
     marginVertical: 10,
-    backgroundColor: '#EFEFEF',
+    backgroundColor: '#2E2D2B',
   },
   quoteText: {
     fontSize: 17,
     fontFamily: 'lato-regular',
-    color: 'rgba(96,100,109, 1)',
+    color: 'white',
     lineHeight: 24,
     textAlign: 'left',
     paddingHorizontal: 25,
