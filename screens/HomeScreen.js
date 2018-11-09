@@ -85,7 +85,7 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.sectionLabel}>COMMENTARIES</Text>
           </View>
 
-          <View style={styles.contentContainer}>
+          <View style={[styles.contentContainer, styles.commentariesContainer]}>
             <FlatList
               data={[
                   { key: 'First\nCore Truth' },
@@ -113,6 +113,9 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 10,
+  },
+  commentariesContainer: {
+    paddingLeft: 14,
   },
   sectionLabelContainer: {
     alignItems: 'flex-start',
@@ -145,15 +148,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 10,
+    paddingBottom: 10,
   },
   image: {
-    flex: 1,
-    height: null,
+    flexGrow: 1,
     width: 325,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 7,
-    borderWidth: 5,
+    borderWidth: 1,
+    borderColor: '#fff',
+    overflow: 'hidden',
   },
   chapterPlay: {
     marginTop: 20,
@@ -166,14 +171,14 @@ const styles = StyleSheet.create({
   },
   subtext: {
     fontSize: 16,
-    marginBottom: 20,
+    marginBottom: 18,
     fontFamily: 'lato-regular',
   },
   item: {
     marginHorizontal: 10,
     padding: 10,
     width: 150,
-    height: 150,
+    height: 120,
     borderRadius: 7,
     borderWidth: 1,
     borderColor: '#fff',
