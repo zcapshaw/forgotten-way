@@ -8,6 +8,7 @@ import {
   FlatList,
   TouchableOpacity,
   View,
+  ImageBackground
 } from 'react-native';
 import { WebBrowser, Font } from 'expo';
 
@@ -59,6 +60,20 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.sectionLabel}>NEXT CHAPTER</Text>
           </View>
 
+          <View style={styles.nextChapter}>
+          <ImageBackground
+          source={{ uri: 'https://images.unsplash.com/photo-1424819827928-55f0c8497861?fit=crop&w=600&h=600' }}
+          style={styles.image}
+          >
+            <Text
+              size={18}
+              style={styles.paragraph}
+            >
+              TITLE
+            </Text>
+            </ImageBackground>
+          </View>
+
           <View style={styles.sectionLabelContainer}>
             <Text style={styles.sectionLabel}>COMMENTARIES</Text>
           </View>
@@ -66,15 +81,15 @@ export default class HomeScreen extends React.Component {
           <View style={styles.contentContainer}>
             <FlatList
               data={[
-                  {key: 'First\nCore Truth'},
-                  {key: 'Second\nCore Truth'},
-                  {key: 'Third\nCore Truth'},
-                  {key: 'Fourth\nCore Truth'},
-                  {key: 'Fifth\nCore Truth'},
+                  { key: 'First\nCore Truth' },
+                  { key: 'Second\nCore Truth' },
+                  { key: 'Third\nCore Truth' },
+                  { key: 'Fourth\nCore Truth' },
+                  { key: 'Fifth\nCore Truth' },
                 ]}
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+              renderItem={({ item }) => <Text style={styles.item}>{item.key}</Text>}
             />
           </View>
 
@@ -118,6 +133,27 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
     paddingVertical: 10,
   },
+  nextChapter: {
+    flex: 1,
+    alignItems: 'stretch',
+    justifyContent: 'center',
+    backgroundColor: '#ecf0f1',
+  },
+  image: {
+    flexGrow: 1,
+    height: null,
+    width: null,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 48,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: 'white',
+    backgroundColor: 'transparent',
+  },
   item: {
     marginHorizontal: 10,
     padding: 10,
@@ -132,5 +168,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     fontFamily: 'lato-black',
-  }
+  },
 });
