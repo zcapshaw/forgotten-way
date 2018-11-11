@@ -1,14 +1,15 @@
 import React from 'react';
 import {
+  Alert,
   Image,
   Platform,
   ScrollView,
   StyleSheet,
   Text,
   FlatList,
-  TouchableOpacity,
   View,
-  ImageBackground
+  ImageBackground,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import { WebBrowser, Font, Icon } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
@@ -36,6 +37,9 @@ export default class HomeScreen extends React.Component {
       fontFamily: 'cinzel',
     },
   };
+  _onPressButton() {
+    this.props.navigation.navigate('Player')
+  }
 
   render() {
     return (
@@ -61,6 +65,7 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.sectionLabel}>NEXT CHAPTER</Text>
           </View>
 
+          <TouchableWithoutFeedback onPress={this._onPressButton}>
           <View style={styles.nextChapter}>
           <ImageBackground
           source={{ uri: 'https://images.unsplash.com/photo-1541627845349-e6d337eadafa?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=eed9ac5a86b07bdb3b4df6d8d4f402b6&auto=format&fit=crop&w=500&q=60' }}
@@ -80,6 +85,7 @@ export default class HomeScreen extends React.Component {
             </Text>
             </ImageBackground>
           </View>
+          </TouchableWithoutFeedback>
 
           <View style={styles.sectionLabelContainer}>
             <Text style={styles.sectionLabel}>COMMENTARIES</Text>

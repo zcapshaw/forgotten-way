@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import AudioPlayer from '../screens/AudioPlayer'
 
 //The pre-loaded icons can be viewed @ https://ionicons.com/
 const HomeStack = createStackNavigator({
@@ -66,8 +67,27 @@ SettingsStack.navigationOptions = {
   ),
 };
 
+const AudioStack = createStackNavigator({
+  Player: AudioPlayer,
+});
+
+AudioStack.navigationOptions = {
+  tabBarLabel: 'AUDIO',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-home${focused ? '' : '-outline'}`
+          : 'md-home'
+      }
+    />
+  ),
+};
+
 export default createBottomTabNavigator({
   HomeStack,
   LinksStack,
   SettingsStack,
+  AudioPlayer,
 });
