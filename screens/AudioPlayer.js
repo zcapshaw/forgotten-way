@@ -11,18 +11,14 @@ import { WebBrowser, Font, Icon } from 'expo';
 
 export default class AudioPlayer extends React.Component {
 	static navigationOptions = {
-    	header: null //Not working, need to review
-    };
+		header: null,
+    }
  
   render() {
     return (
         <View style={styles.container}>
-        	<View style={styles.transparentContainer}>
-        	</View>
-        	<View style={styles.playerContainer}>
           		<Text>This is a test</Text>
           		<Button title='Back' onPress={() => this.props.navigation.goBack(null)} />
-          	</View>
         </View>
     )
   }
@@ -31,7 +27,6 @@ export default class AudioPlayer extends React.Component {
 const styles = StyleSheet.create({
   	container: {
     	flex: 1,
-    	paddingTop: 100,
     	alignItems: 'stretch',
     	justifyContent: 'center',
     	backgroundColor: '#00000000',
