@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, FlatList, Text, Platform } from 'react-native';
+import { ScrollView, StyleSheet, FlatList, Text, Platform, View } from 'react-native';
 
 export default class ChaptersScreen extends React.Component {
   static navigationOptions = {
@@ -52,8 +52,24 @@ export default class ChaptersScreen extends React.Component {
           /* Function below adds conditional formatting to chapters
           based on position in the list */
           renderItem={({ item, index }) => {
-            if (index < 2) return <Text style={styles.itemComplete}>{ item.key }</Text>;
-            return <Text style={styles.item}>{ item.key }</Text>;
+            if (index < 2) {
+              return (
+                <View style={styles.contentHeader}>
+                  <View style={styles.itemComplete}>
+                    <Text style={styles.chapterText}>{ item.key }</Text>;
+                    <Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
+                  </View>
+                </View>
+              );
+            }
+            return (
+              <View style={styles.contentHeader}>
+                <View style={styles.item}>
+                  <Text style={styles.chapterText}>{ item.key }</Text>;
+                  <Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
+                </View>
+              </View>
+            );
           }
         }
         />
@@ -83,28 +99,38 @@ const styles = StyleSheet.create({
       },
     }),
   },
+  contentHeader: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    marginBottom: 6
+  },
   item: {
-    paddingVertical: 30,
+    paddingVertical: 20,
     paddingLeft: 25,
     marginVertical: 10,
     width: 350,
     borderRadius: 7,
     overflow: 'hidden',
     backgroundColor: '#2E2D2B',
-    color: '#fff',
-    fontSize: 20,
-    fontFamily: 'lato-black',
   },
   itemComplete: {
-    paddingVertical: 30,
+    paddingVertical: 20,
     paddingLeft: 25,
     marginVertical: 10,
     width: 350,
     borderRadius: 7,
     overflow: 'hidden',
     backgroundColor: '#5D5958',
-    color: '#fff',
+  },
+  chapterText: {
     fontSize: 20,
     fontFamily: 'lato-black',
-  }
+    color: '#fff',
+  },
+  chapterSubtext: {
+    fontSize: 16,
+    fontFamily: 'lato-regular',
+    paddingTop: 5,
+    color: '#fff',
+  },
 });
