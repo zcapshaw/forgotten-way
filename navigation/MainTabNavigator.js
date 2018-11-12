@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import ChaptersScreen from '../screens/ChaptersScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 //The pre-loaded icons can be viewed @ https://ionicons.com/
@@ -26,15 +26,11 @@ HomeStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+const ChaptersStack = createStackNavigator({
+  Chapters: ChaptersScreen,
 });
 
-/*
-  * Changed label from 'Links' to 'Lessons' below
-  * At some point we should clean up the file names and classes that refer to 'Links'
-*/
-LinksStack.navigationOptions = {
+ChaptersStack.navigationOptions = {
   tabBarLabel: 'CHAPTERS',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -69,6 +65,6 @@ SettingsStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
+  ChaptersStack,
   SettingsStack,
 });
