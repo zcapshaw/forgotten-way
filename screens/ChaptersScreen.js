@@ -55,7 +55,7 @@ export default class ChaptersScreen extends React.Component {
             if (index < 2) {
               return (
                 <View style={styles.contentHeader}>
-                  <View style={styles.itemComplete}>
+                  <View style={[styles.item, styles.itemComplete]}>
                     <Text style={styles.chapterText}>{ item.key }</Text>;
                     <Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
                   </View>
@@ -107,19 +107,13 @@ const styles = StyleSheet.create({
   item: {
     paddingVertical: 20,
     paddingLeft: 25,
-    marginVertical: 10,
+    marginVertical: 5,
     width: 350,
     borderRadius: 7,
     overflow: 'hidden',
     backgroundColor: '#2E2D2B',
   },
   itemComplete: {
-    paddingVertical: 20,
-    paddingLeft: 25,
-    marginVertical: 10,
-    width: 350,
-    borderRadius: 7,
-    overflow: 'hidden',
     backgroundColor: '#5D5958',
   },
   chapterText: {
