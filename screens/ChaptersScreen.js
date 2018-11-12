@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet, FlatList, Text, Platform, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class ChaptersScreen extends React.Component {
   static navigationOptions = {
@@ -52,21 +53,27 @@ export default class ChaptersScreen extends React.Component {
           /* Function below adds conditional formatting to chapters
           based on position in the list */
           renderItem={({ item, index }) => {
-            if (index < 2) {
+            if (index < 2) { // First two use itemComplete styling
               return (
-                <View style={styles.contentHeader}>
-                  <View style={[styles.item, styles.itemComplete]}>
+                <View style={[styles.chapterTile, styles.itemComplete]}>
+                  <View style={styles.item}>
                     <Text style={styles.chapterText}>{ item.key }</Text>;
                     <Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
+                  </View>
+                  <View style={styles.icon}>
+                    <Ionicons name="md-checkmark-circle" size={32} color="white" />
                   </View>
                 </View>
               );
             }
-            return (
-              <View style={styles.contentHeader}>
+            return ( // else use item styling
+              <View style={styles.chapterTile}>
                 <View style={styles.item}>
                   <Text style={styles.chapterText}>{ item.key }</Text>;
                   <Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
+                </View>
+                <View style={styles.icon}>
+                  <Ionicons name="ios-play" size={32} color="white" />
                 </View>
               </View>
             );
@@ -99,12 +106,7 @@ const styles = StyleSheet.create({
       },
     }),
   },
-  contentHeader: {
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-    marginBottom: 6
-  },
-  item: {
+  chapterTile: {
     paddingVertical: 20,
     paddingLeft: 25,
     marginVertical: 5,
@@ -112,6 +114,12 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     overflow: 'hidden',
     backgroundColor: '#2E2D2B',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  item: {
+    flexDirection: 'column',
+    justifyContent: 'space-between',
   },
   itemComplete: {
     backgroundColor: '#5D5958',
@@ -127,4 +135,8 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     color: '#fff',
   },
+  icon: {
+    paddingRight: 20,
+    justifyContent: 'center'
+  }
 });

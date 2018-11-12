@@ -80,7 +80,7 @@ constructor(props) {
           <Text style={styles.sectionHeader}>{section.title}</Text>}
 
           renderItem={({ item }) =>
-          <View style={styles.contentContainer}>
+          <View style={styles.container}>
               <TouchableOpacity onPress={() => {}}>
                 <Image style={styles.image} source={{ uri: item.image }} />
               </TouchableOpacity>
@@ -101,14 +101,13 @@ constructor(props) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-  contentContainer: {
-    paddingTop: 12,
+    paddingVertical: 12,
     flexDirection: 'row',
     alignItems: 'flex-start',
     backgroundColor: '#fff',
+  },
+  contentContainer: {
+    paddingTop: 10,
   },
   content: {
     marginLeft: 16,
@@ -120,10 +119,10 @@ const styles = StyleSheet.create({
     marginBottom: 6
   },
   sectionHeader: {
-    paddingTop: 30,
+    paddingTop: 20,
     paddingLeft: 20,
     paddingRight: 10,
-    paddingBottom: 5,
+    paddingBottom: 8,
     fontSize: 12,
     fontFamily: 'lato-black',
     color: 'rgba(96,100,109, 1)',
@@ -146,6 +145,6 @@ const styles = StyleSheet.create({
   subtext: {
     fontSize: 14,
     fontFamily: 'lato-regular',
-    paddingTop: 5
+    paddingTop: 5,
   },
 });
