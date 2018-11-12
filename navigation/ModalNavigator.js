@@ -12,6 +12,10 @@ const ModalStack = createStackNavigator({
 	},
 )
 
+ModalStack.navigationOptions = {
+	header: null,
+};
+
 export default createStackNavigator({
 	ModalStack,
 });

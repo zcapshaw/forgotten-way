@@ -10,19 +10,14 @@ import { WebBrowser, Font, Icon } from 'expo';
 });*/
 
 export default class AudioPlayer extends React.Component {
-	static navigationOptions = {
-    	header: null //Not working, need to review
-    };
  
   render() {
     return (
         <View style={styles.container}>
-        	<View style={styles.transparentContainer}>
-        	</View>
+        	<View style={styles.transparentContainer}></View>
         	<View style={styles.playerContainer}>
-          		<Text>This is a test</Text>
           		<Button title='Back' onPress={() => this.props.navigation.goBack(null)} />
-          	</View>
+        	</View>
         </View>
     )
   }
@@ -31,20 +26,23 @@ export default class AudioPlayer extends React.Component {
 const styles = StyleSheet.create({
   	container: {
     	flex: 1,
-    	paddingTop: 100,
     	alignItems: 'stretch',
     	justifyContent: 'center',
-    	backgroundColor: '#00000000',
+    	backgroundColor: '#fff',
   	},
-	transparentContainer: {
-		flex: .15,
-		alignItems: 'stretch',
-		backgroundColor: 'transparent',
-	},
+  	transparentContainer: {
+  		flex: .1,
+  		backgroundColor: 'transparent',
+  	},
 	playerContainer: {
-		flex: .85,
+		flex: .90,
+		paddingTop: 30,
 		alignItems: 'stretch',
-		backgroundColor: 'transparent',
+		backgroundColor: '#ddd',
+		borderRadius: 7,
+    	borderWidth: 1,
+    	borderColor: '#fff',
+    	overflow: 'hidden',
 	},
 
 });
