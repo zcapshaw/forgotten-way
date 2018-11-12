@@ -14,8 +14,10 @@ export default class AudioPlayer extends React.Component {
   render() {
     return (
         <View style={styles.container}>
-          		<Text>This is a test</Text>
+        	<View style={styles.transparentContainer}></View>
+        	<View style={styles.playerContainer}>
           		<Button title='Back' onPress={() => this.props.navigation.goBack(null)} />
+        	</View>
         </View>
     )
   }
@@ -26,17 +28,21 @@ const styles = StyleSheet.create({
     	flex: 1,
     	alignItems: 'stretch',
     	justifyContent: 'center',
-    	backgroundColor: '#00000000',
+    	backgroundColor: '#fff',
   	},
-	transparentContainer: {
-		flex: .15,
-		alignItems: 'stretch',
-		backgroundColor: 'transparent',
-	},
+  	transparentContainer: {
+  		flex: .1,
+  		backgroundColor: 'transparent',
+  	},
 	playerContainer: {
-		flex: .85,
+		flex: .90,
+		paddingTop: 30,
 		alignItems: 'stretch',
-		backgroundColor: 'transparent',
+		backgroundColor: '#ddd',
+		borderRadius: 7,
+    	borderWidth: 1,
+    	borderColor: '#fff',
+    	overflow: 'hidden',
 	},
 
 });
