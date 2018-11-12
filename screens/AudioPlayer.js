@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, Button, Text, StyleSheet} from 'react-native';
+import {View, Button, Text, StyleSheet, Screen, Modal, TouchableHighlight, Alert} from 'react-native';
+import { Navigation } from 'react-navigation';
 import { WebBrowser, Font, Icon } from 'expo';
 // import TrackPlayer from 'react-native-track-player';
-import SlidingUpPanel from 'rn-sliding-up-panel';
 
 
 /*TrackPlayer.setupPlayer().then(() => {
@@ -10,32 +10,41 @@ import SlidingUpPanel from 'rn-sliding-up-panel';
 });*/
 
 export default class AudioPlayer extends React.Component {
-  state = {
-    visible: false
-  }
+	static navigationOptions = {
+    	header: null //Not working, need to review
+    };
  
   render() {
     return (
-      <View style={styles.container}>
-        <Button title='Show panel' onPress={() => this.setState({visible: true})} />
-        <SlidingUpPanel
-          visible={this.state.visible}
-          onRequestClose={() => this.setState({visible: false})}>
-          <View style={styles.container}>
-            <Text>Here is the content inside panel</Text>
-            <Button title='Hide' onPress={() => this.setState({visible: false})} />
-          </View>
-        </SlidingUpPanel>
-      </View>
-    );
+        <View style={styles.container}>
+        	<View style={styles.transparentContainer}>
+        	</View>
+        	<View style={styles.playerContainer}>
+          		<Text>This is a test</Text>
+          		<Button title='Back' onPress={() => this.props.navigation.goBack(null)} />
+          	</View>
+        </View>
+    )
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
+  	container: {
+    	flex: 1,
+    	paddingTop: 100,
+    	alignItems: 'stretch',
+    	justifyContent: 'center',
+    	backgroundColor: '#00000000',
+  	},
+	transparentContainer: {
+		flex: .15,
+		alignItems: 'stretch',
+		backgroundColor: 'transparent',
+	},
+	playerContainer: {
+		flex: .85,
+		alignItems: 'stretch',
+		backgroundColor: 'transparent',
+	},
+
 });
