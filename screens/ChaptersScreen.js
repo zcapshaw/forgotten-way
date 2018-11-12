@@ -1,11 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, FlatList, Text, Platform } from 'react-native';
 
-
-/* Changed title from 'Links' to 'CHAPTERS'
-  * We should go back and update all the file names and classes too */
-
-export default class LinksScreen extends React.Component {
+export default class ChaptersScreen extends React.Component {
   static navigationOptions = {
     title: 'CHAPTERS',
     headerStyle: {
@@ -27,27 +23,31 @@ export default class LinksScreen extends React.Component {
     },
   };
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      data: [
+        { key: 'Chapter 1', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+        { key: 'Chapter 2', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+        { key: 'Chapter 3', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+        { key: 'Chapter 4', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+        { key: 'Chapter 5', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+        { key: 'Chapter 6', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+        { key: 'Chapter 7', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+        { key: 'Chapter 8', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+        { key: 'Chapter 9', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+        { key: 'Chapter 10', subtext: 'Lorem Ipsum Dolor Sit Amet' },
+      ]
+    };
+  }
+
+
   render() {
     return (
       <ScrollView style={styles.container}>
         <FlatList
           contentContainerStyle={styles.flatList}
-          data={[
-            /* hardcoded checkmarks into 1st 2 chapter titles
-            Need to figure out how to add right-aligned icons to
-            FlatList items */
-            { key: 'Chapter 1: Awesome Chapter     ☑️' },
-            { key: 'Chapter 2: Radical Chapter           ☑️' },
-            { key: 'Chapter 3: Tubular Chapter' },
-            { key: 'Chapter 4: Incredible Chapter' },
-            { key: 'Chapter 5: Ridiculous Chapter' },
-            { key: 'Chapter 6: Good Chapter' },
-            { key: 'Chapter 7: Better Chapter' },
-            { key: 'Chapter 8: Best Chapter' },
-            { key: 'Chapter 9: Delicious Chapter' },
-            { key: 'Chapter 10: Sparkling Chapter' },
-            { key: 'Chapter 11: Magnificent Chapter' }
-          ]}
+          data={this.state.data}
 
           /* Function below adds conditional formatting to chapters
           based on position in the list */
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   item: {
     paddingVertical: 30,
-    paddingLeft: 10,
+    paddingLeft: 25,
     marginVertical: 10,
     width: 350,
     borderRadius: 7,
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   itemComplete: {
     paddingVertical: 30,
-    paddingLeft: 10,
+    paddingLeft: 25,
     marginVertical: 10,
     width: 350,
     borderRadius: 7,
