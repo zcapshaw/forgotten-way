@@ -42,27 +42,27 @@ constructor(props) {
   this.state = {
     data: [
       {
-        title: 'THE FORGOTTEN WAY COMMENTARIES',
+        title: 'THE FORGOTTEN WAY',
         data: [
-          { key: 1, name: 'Core Truth #1: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar6.png' },
-          { key: 2, name: 'Core Truth #2: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
-          { key: 3, name: 'Core Truth #3: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
-          { key: 4, name: 'Core Truth #4: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
-          { key: 5, name: 'Core Truth #5: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
+          { key: 1, name: 'Core Truth #1: Lorem Ipsum', image: 'https://images.unsplash.com/photo-1541832069-e4f383392e1d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a561f6a5179df29e8729877d4ff80b32&auto=format&fit=crop&w=500&q=60' },
+          { key: 2, name: 'Core Truth #2: Lorem Ipsum', image: 'https://images.unsplash.com/photo-1541796484625-7f5bcba550cc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ac759f3f244b417ca48e7f15b8e0b7d8&auto=format&fit=crop&w=500&q=60' },
+          { key: 3, name: 'Core Truth #3: Lorem Ipsum', image: 'https://images.unsplash.com/photo-1541789094913-f3809a8f3ba5?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ba555c8bb03ffabb86e6ecf9ec4243c&auto=format&fit=crop&w=500&q=60' },
+          { key: 4, name: 'Core Truth #4: Lorem Ipsum', image: 'https://images.unsplash.com/photo-1541746951956-4f27df54f02b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=027b183a2e7e5c8cb657862b34db5530&auto=format&fit=crop&w=500&q=60' },
+          { key: 5, name: 'Core Truth #5: Lorem Ipsum', image: 'https://images.unsplash.com/photo-1541753231552-fa0b6f0c4d7c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=2887fd5cf1d3eae72545fe3d8cdd5a04&auto=format&fit=crop&w=500&q=60' },
         ]
       },
       {
         title: 'MEDITATIONS',
         data: [
-          { key: 1, name: 'Practicing Mindfulness', image: 'https://bootdey.com/img/Content/avatar/avatar3.png' },
+          { key: 1, name: 'Practicing Mindfulness', image: 'https://images.unsplash.com/photo-1541664480066-ae01cda3bc69?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1d3aa7477394b86b8289beffc12174c8&auto=format&fit=crop&w=500&q=60' },
         ]
       },
       {
         title: 'PODCASTS',
         data: [
-          { key: 1, name: 'Aubrey Marcus Podcast with Ted Dekker', image: 'https://bootdey.com/img/Content/avatar/avatar5.png' },
-          { key: 2, name: 'The Joe Rogan Experience with Ted Dekker', image: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
-          { key: 3, name: 'The Tim Ferris Show with Ted Dekker', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
+          { key: 1, name: 'Aubrey Marcus Podcast with Ted Dekker', image: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=04c4af64629678d376f21fd9bd05229f&auto=format&fit=crop&w=500&q=60' },
+          { key: 2, name: 'The Joe Rogan Experience with Ted Dekker', image: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=04c4af64629678d376f21fd9bd05229f&auto=format&fit=crop&w=500&q=60' },
+          { key: 3, name: 'The Tim Ferris Show with Ted Dekker', image: 'https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=04c4af64629678d376f21fd9bd05229f&auto=format&fit=crop&w=500&q=60' },
         ]
       },
     ]
@@ -75,7 +75,7 @@ constructor(props) {
       <View style={styles.container}>
         <SectionList
           sections={this.state.data}
-
+          stickySectionHeadersEnabled={false}
           renderSectionHeader={({ section }) =>
           <Text style={styles.sectionHeader}>{section.title}</Text>}
 
@@ -119,11 +119,12 @@ const styles = StyleSheet.create({
   },
   sectionHeader: {
     paddingTop: 20,
-    paddingLeft: 10,
+    paddingLeft: 20,
     paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
+    paddingBottom: 8,
+    fontSize: 12,
+    fontFamily: 'lato-black',
+    color: 'rgba(96,100,109, 1)',
   },
   item: {
     padding: 10,
@@ -131,12 +132,13 @@ const styles = StyleSheet.create({
     height: 44,
   },
   image: {
-    width: 45,
-    height: 45,
-    borderRadius: 20,
+    width: 80,
+    height: 60,
+    borderRadius: 5,
     marginLeft: 20,
   },
   name: {
     fontSize: 16,
+    fontFamily: 'lato-black',
   },
 });
