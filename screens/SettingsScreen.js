@@ -37,30 +37,62 @@ export default class SettingsScreen extends React.Component {
     },
   };
 
+constructor(props) {
+  super(props);
+  this.state = {
+    data: [
+      {
+        title: 'THE FORGOTTEN WAY COMMENTARIES',
+        data: [
+          { key: 1, name: 'Core Truth #1: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar6.png' },
+          { key: 2, name: 'Core Truth #2: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
+          { key: 3, name: 'Core Truth #3: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
+          { key: 4, name: 'Core Truth #4: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
+          { key: 5, name: 'Core Truth #5: Lorem Ipsum', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
+        ]
+      },
+      {
+        title: 'MEDITATIONS',
+        data: [
+          { key: 1, name: 'Practicing Mindfulness', image: 'https://bootdey.com/img/Content/avatar/avatar3.png' },
+        ]
+      },
+      {
+        title: 'PODCASTS',
+        data: [
+          { key: 1, name: 'Aubrey Marcus Podcast with Ted Dekker', image: 'https://bootdey.com/img/Content/avatar/avatar5.png' },
+          { key: 2, name: 'The Joe Rogan Experience with Ted Dekker', image: 'https://bootdey.com/img/Content/avatar/avatar1.png' },
+          { key: 3, name: 'The Tim Ferris Show with Ted Dekker', image: 'https://bootdey.com/img/Content/avatar/avatar7.png' },
+        ]
+      },
+    ]
+  };
+}
+
 
  render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <SectionList
-            sections={[
-                { title: 'THE FORGOTTEN WAY COMMENTARIES',
-                  data: ['Core Truth #1: Lorem Ipsum', 'Core Truth #2: Lorem Ipsum',
-                  'Core Truth #3: Lorem Ipsum', 'Core Truth #4: Lorem Ipsum',
-                  'Core Truth #5: Lorem Ipsum'] },
-                { title: 'MEDITATIONS',
-                  data: ['Practicing Mindfulness'] },
-                { title: 'PODCASTS',
-                  data: ['Aubrey Marcus Podcast with Ted Dekker',
-                  'The Joe Rogan Experience with Ted Dekker',
-                  'The Tim Ferris Show with Ted Dekker'] },
-            ]}
-            renderItem={({ item }) => <Text style={styles.item}>{item}</Text>}
-            renderSectionHeader={({ section }) =>
-            <Text style={styles.sectionHeader}>{section.title}</Text>}
-            keyExtractor={(item, index) => index}
-          />
-        </ScrollView>
+        <SectionList
+          sections={this.state.data}
+
+          renderSectionHeader={({ section }) =>
+          <Text style={styles.sectionHeader}>{section.title}</Text>}
+
+          renderItem={({ item }) =>
+          <View style={styles.container}>
+              <TouchableOpacity onPress={() => {}}>
+                <Image style={styles.image} source={{ uri: item.image }} />
+              </TouchableOpacity>
+              <View style={styles.content}>
+                <View style={styles.contentHeader}>
+                  <Text style={styles.name}>{item.name}</Text>
+                </View>
+              </View>
+            </View>}
+
+          keyExtractor={(item, index) => index}
+        />
       </View>
     );
 	}
@@ -68,24 +100,43 @@ export default class SettingsScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    paddingVertical: 12,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
     backgroundColor: '#fff',
   },
   contentContainer: {
     paddingTop: 10,
   },
+  content: {
+    marginLeft: 16,
+    flex: 1,
+  },
+  contentHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 6
+  },
   sectionHeader: {
-    paddingTop: 2,
+    paddingTop: 20,
     paddingLeft: 10,
     paddingRight: 10,
     paddingBottom: 2,
     fontSize: 14,
     fontWeight: 'bold',
-    backgroundColor: 'rgba(247,247,247,1.0)',
   },
   item: {
     padding: 10,
     fontSize: 18,
     height: 44,
+  },
+  image: {
+    width: 45,
+    height: 45,
+    borderRadius: 20,
+    marginLeft: 20,
+  },
+  name: {
+    fontSize: 16,
   },
 });
