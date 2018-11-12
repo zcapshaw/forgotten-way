@@ -10,9 +10,6 @@ import { WebBrowser, Font, Icon } from 'expo';
 });*/
 
 export default class AudioPlayer extends React.Component {
-	static navigationOptions = {
-		header: null,
-    }
  
   render() {
     return (
