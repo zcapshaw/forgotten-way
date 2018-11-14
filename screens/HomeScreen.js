@@ -10,7 +10,6 @@ import {
   View,
   ImageBackground,
   TouchableWithoutFeedback,
-  TouchableHighlight,
 } from 'react-native';
 import { Navigation } from 'react-navigation'
 import { WebBrowser, Font, Icon } from 'expo';
@@ -119,7 +118,9 @@ export default class HomeScreen extends React.Component {
         </ScrollView>
 
         <View style={styles.playerFooter}>
-          <View style={styles.footerIcon}><Ionicons name="ios-arrow-up" size={32} color="white" /></View>
+          <TouchableWithoutFeedback onPress={this._onPressButton.bind(this)}>
+            <View style={styles.footerIcon}><Ionicons name="ios-arrow-up" size={32} color="white" /></View>
+          </TouchableWithoutFeedback>
           <Text style={{color:'white', fontSize:16}}>0:34/4:24</Text>
           <View style={styles.footerIcon}><Ionicons name="ios-play" size={40} color="white" /></View>
         </View>
