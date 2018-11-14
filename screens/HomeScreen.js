@@ -46,7 +46,7 @@ export default class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <ScrollView style={[styles.container, styles.contentContainer]}>
 
           <View style={styles.sectionLabelContainer}>
             <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
@@ -116,6 +116,11 @@ export default class HomeScreen extends React.Component {
           </View>
 
         </ScrollView>
+
+        <View style={styles.playerFooter}>
+          <Text>Test</Text>
+
+        </View>
       </View>
     );
   }
@@ -128,6 +133,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 10,
+    paddingBottom: 20,
   },
   commentariesContainer: {
     paddingLeft: 14,
@@ -201,7 +207,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-
   },
   itemText: {
     color: '#fff',
@@ -209,5 +214,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'lato-black',
     textAlign: 'center',
-  }
+  },
+  playerFooter: {
+    display: 'flex',
+    flex: .1,
+    alignItems: 'stretch',
+    bottom: 0,
+    height: 10,
+    backgroundColor: '#2E2D2B'
+  },
+
 });
