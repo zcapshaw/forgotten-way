@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   commentariesContainer: {
-    paddingLeft: 14,
+    marginLeft: 0, //removing margin for clean off screen image flow
   },
   sectionLabelContainer: {
     alignItems: 'flex-start',
