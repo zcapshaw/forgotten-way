@@ -120,7 +120,7 @@ export default class HomeScreen extends React.Component {
 
         <View style={styles.playerFooter}>
           <View style={styles.footerIcon}><Ionicons name="ios-arrow-up" size={32} color="white" /></View>
-          <Text style={{color:'white'}}>0:34/4:24</Text>
+          <Text style={{color:'white', fontSize:16}}>0:34/4:24</Text>
           <View style={styles.footerIcon}><Ionicons name="ios-play" size={40} color="white" /></View>
         </View>
       </View>
