@@ -10,6 +10,7 @@ import {
   View,
   ImageBackground,
   TouchableWithoutFeedback,
+  TouchableHighlight,
 } from 'react-native';
 import { Navigation } from 'react-navigation'
 import { WebBrowser, Font, Icon } from 'expo';
@@ -118,8 +119,9 @@ export default class HomeScreen extends React.Component {
         </ScrollView>
 
         <View style={styles.playerFooter}>
-          <Text>Test</Text>
-
+          <View style={styles.footerIcon}><Ionicons name="ios-arrow-up" size={32} color="white" /></View>
+          <Text style={{color:'white'}}>0:34/4:24</Text>
+          <View style={styles.footerIcon}><Ionicons name="ios-play" size={40} color="white" /></View>
         </View>
       </View>
     );
@@ -217,11 +219,14 @@ const styles = StyleSheet.create({
   },
   playerFooter: {
     display: 'flex',
-    flex: .1,
-    alignItems: 'stretch',
-    bottom: 0,
-    height: 10,
-    backgroundColor: '#2E2D2B'
+    flex: .12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#545454',
+  },
+  footerIcon: {
+    paddingHorizontal: 25,
   },
 
 });
