@@ -46,7 +46,7 @@ export default class HomeScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <ScrollView style={[styles.container, styles.contentContainer]}>
 
           <View style={styles.sectionLabelContainer}>
             <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
@@ -116,6 +116,14 @@ export default class HomeScreen extends React.Component {
           </View>
 
         </ScrollView>
+
+        <View style={styles.playerFooter}>
+          <TouchableWithoutFeedback onPress={this._onPressButton.bind(this)}>
+            <View style={styles.footerIcon}><Ionicons name="ios-arrow-up" size={32} color="white" /></View>
+          </TouchableWithoutFeedback>
+          <Text style={{color:'white', fontSize:16}}>0:34/4:24</Text>
+          <View style={styles.footerIcon}><Ionicons name="ios-play" size={40} color="white" /></View>
+        </View>
       </View>
     );
   }
@@ -128,9 +136,10 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 10,
+    paddingBottom: 20,
   },
   commentariesContainer: {
-    paddingLeft: 14,
+    marginLeft: 0, //removing margin for clean off screen image flow
   },
   sectionLabelContainer: {
     alignItems: 'flex-start',
@@ -201,7 +210,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-
   },
   itemText: {
     color: '#fff',
@@ -209,5 +217,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'lato-black',
     textAlign: 'center',
-  }
+  },
+  playerFooter: {
+    display: 'flex',
+    flex: .12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    backgroundColor: '#545454',
+  },
+  footerIcon: {
+    paddingHorizontal: 25,
+  },
+
 });
