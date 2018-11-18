@@ -15,6 +15,7 @@ import { Navigation } from 'react-navigation'
 import { WebBrowser, Font, Icon } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import { MonoText } from '../components/StyledText';
+import PlayerFooter from '../components/PlayerFooter';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -117,13 +118,8 @@ export default class HomeScreen extends React.Component {
 
         </ScrollView>
 
-        <View style={styles.playerFooter}>
-          <TouchableWithoutFeedback onPress={this._onPressButton.bind(this)}>
-            <View style={styles.footerIcon}><Ionicons name="ios-arrow-up" size={32} color="white" /></View>
-          </TouchableWithoutFeedback>
-          <Text style={{color:'white', fontSize:16}}>0:34/4:24</Text>
-          <View style={styles.footerIcon}><Ionicons name="ios-play" size={40} color="white" /></View>
-        </View>
+        <View style={{flex:.12}}><PlayerFooter /></View>
+        
       </View>
     );
   }
@@ -218,16 +214,4 @@ const styles = StyleSheet.create({
     fontFamily: 'lato-black',
     textAlign: 'center',
   },
-  playerFooter: {
-    display: 'flex',
-    flex: .12,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#545454',
-  },
-  footerIcon: {
-    paddingHorizontal: 25,
-  },
-
 });
