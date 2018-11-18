@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { withNavigation } from 'react-navigation'
 import { WebBrowser, Font, Icon } from 'expo';
+import { connect } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
 import { MonoText } from '../components/StyledText';
 
@@ -15,7 +16,7 @@ class PlayerFooter extends React.Component {
 		this.setState(previousState => (
 			{ isPlaying: !previousState.isPlaying }
 		))
-		//console.log(this.state)
+		console.log(store.getState())
 	}
 
 	constructor(props) {
