@@ -16,7 +16,6 @@ class PlayerFooter extends React.Component {
 		this.setState(previousState => (
 			{ isPlaying: !previousState.isPlaying }
 		))
-		console.log(store.getState())
 	}
 
 	constructor(props) {
