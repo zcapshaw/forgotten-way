@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScrollView, StyleSheet, FlatList, Text, Platform, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import PlayerFooter from '../components/PlayerFooter';
 
 export default class ChaptersScreen extends React.Component {
   static navigationOptions = {
@@ -45,7 +46,8 @@ export default class ChaptersScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
+      <ScrollView style={styles.scrollView}>
         <FlatList
           contentContainerStyle={styles.flatList}
           data={this.state.data}
@@ -81,6 +83,10 @@ export default class ChaptersScreen extends React.Component {
         }
         />
       </ScrollView>
+
+      <View style={{flex:.12}}><PlayerFooter /></View>
+
+    </View>
     );
   }
 }
@@ -88,7 +94,10 @@ export default class ChaptersScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 15,
+  },
+  scrollView: {
+    flex: 1,
+    paddingVertical: 15,
     backgroundColor: '#fff',
   },
   flatList: {

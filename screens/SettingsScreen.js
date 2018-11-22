@@ -1,16 +1,7 @@
 import React from 'react';
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  FlatList,
-  SectionList,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Image, Platform, ScrollView, StyleSheet, Text, FlatList, SectionList, TouchableOpacity, View } from 'react-native';
 import { WebBrowser, Font } from 'expo';
+import PlayerFooter from '../components/PlayerFooter';
 
 /* Changed title from 'app.json' to 'Commentaries'
   * We should go back and update all the file names and classes too */
@@ -73,27 +64,32 @@ constructor(props) {
  render() {
     return (
       <View style={styles.container}>
-        <SectionList
-          sections={this.state.data}
-          stickySectionHeadersEnabled={false}
-          renderSectionHeader={({ section }) =>
-          <Text style={styles.sectionHeader}>{section.title}</Text>}
+        <View style={styles.sectionListContainer}>
+          <SectionList
+            sections={this.state.data}
+            stickySectionHeadersEnabled={false}
+            renderSectionHeader={({ section }) =>
+            <Text style={styles.sectionHeader}>{section.title}</Text>}
 
-          renderItem={({ item }) =>
-          <View style={styles.container}>
-              <TouchableOpacity onPress={() => {}}>
-                <Image style={styles.image} source={{ uri: item.image }} />
-              </TouchableOpacity>
-              <View style={styles.content}>
-                <View style={styles.contentHeader}>
-                  <Text style={styles.name}>{item.name}</Text>
-                  <Text style={styles.subtext}>{item.subtext}</Text>
+            renderItem={({ item }) =>
+            <View style={[styles.sectionListContainer, styles.contentContainer]}>
+                <TouchableOpacity onPress={() => {}}>
+                  <Image style={styles.image} source={{ uri: item.image }} />
+                </TouchableOpacity>
+                <View style={styles.content}>
+                  <View style={styles.contentHeader}>
+                    <Text style={styles.name}>{item.name}</Text>
+                    <Text style={styles.subtext}>{item.subtext}</Text>
+                  </View>
                 </View>
-              </View>
-            </View>}
+              </View>}
 
-          keyExtractor={(item, index) => index}
-        />
+            keyExtractor={(item, index) => index}
+          />
+        </View>
+        
+        <View style={{flex:.12}}><PlayerFooter /></View>
+
       </View>
     );
 	}
@@ -101,13 +97,16 @@ constructor(props) {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 12,
+    flex: 1,
+  },
+  sectionListContainer: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'flex-start',
     backgroundColor: '#fff',
   },
   contentContainer: {
-    paddingTop: 10,
+    paddingVertical: 12,
   },
   content: {
     marginLeft: 16,
