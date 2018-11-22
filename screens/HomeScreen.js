@@ -1,20 +1,11 @@
 import React from 'react';
-import {
-  Alert,
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  FlatList,
-  View,
-  ImageBackground,
-  TouchableWithoutFeedback,
-} from 'react-native';
+import { Alert, Image, Platform, ScrollView, StyleSheet, Text, FlatList, View, ImageBackground, TouchableWithoutFeedback, } from 'react-native';
 import { Navigation } from 'react-navigation'
 import { WebBrowser, Font, Icon } from 'expo';
+import { Controller } from 'react-redux';
 import { Ionicons } from '@expo/vector-icons';
 import { MonoText } from '../components/StyledText';
+import PlayerFooter from '../components/PlayerFooter';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -38,15 +29,15 @@ export default class HomeScreen extends React.Component {
     },
   }
 
-    _onPressButton() {
-      this.props.navigation.navigate('Modal')
-    };
+  _onPressButton() {
+    this.props.navigation.navigate('Modal')
+  }
 
   render() {
 
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+        <ScrollView style={[styles.container, styles.contentContainer]}>
 
           <View style={styles.sectionLabelContainer}>
             <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
@@ -116,6 +107,9 @@ export default class HomeScreen extends React.Component {
           </View>
 
         </ScrollView>
+
+        <View style={{flex:.12}}><PlayerFooter /></View>
+
       </View>
     );
   }
@@ -128,9 +122,10 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 10,
+    paddingBottom: 20,
   },
   commentariesContainer: {
-    paddingLeft: 14,
+    marginLeft: 0, //removing margin for clean off screen image flow
   },
   sectionLabelContainer: {
     alignItems: 'flex-start',
@@ -201,7 +196,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-
   },
   itemText: {
     color: '#fff',
@@ -209,5 +203,5 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontFamily: 'lato-black',
     textAlign: 'center',
-  }
+  },
 });
