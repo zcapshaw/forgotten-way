@@ -1,16 +1,38 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ChaptersScreen from '../screens/ChaptersScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 //The pre-loaded icons can be viewed @ https://ionicons.com/
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
-});
+const HomeStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+  },
+  {
+  defaultNavigationOptions: {
+    headerStyle: {
+      ...Platform.select({
+        ios: {
+          shadowColor: 'black',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 20,
+        },
+      }),
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+      fontFamily: 'cinzel',
+      },
+    }
+  }
+);
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'HOME',
@@ -28,7 +50,8 @@ HomeStack.navigationOptions = {
 
 const ChaptersStack = createStackNavigator({
   Chapters: ChaptersScreen,
-});
+  },
+);
 
 ChaptersStack.navigationOptions = {
   tabBarLabel: 'CHAPTERS',
