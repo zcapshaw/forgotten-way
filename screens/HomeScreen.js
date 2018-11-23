@@ -20,7 +20,7 @@ export default class HomeScreen extends Component {
         <ScrollView style={[styles.container, styles.contentContainer]}>
 
           <View style={styles.sectionLabelContainer}>
-            <Text style={styles.sectionLabel}>DAILY asdf QUOTE</Text>
+            <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
           </View>
 
           <View style={styles.dailyQuoteContainer}>
