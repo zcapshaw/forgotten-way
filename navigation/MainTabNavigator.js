@@ -12,7 +12,7 @@ const HomeStack = createStackNavigator(
     Home: HomeScreen,
   },
   {
-  defaultNavigationOptions: {
+  navigationOptions: {
     headerStyle: {
       ...Platform.select({
         ios: {
@@ -51,6 +51,27 @@ HomeStack.navigationOptions = {
 const ChaptersStack = createStackNavigator({
   Chapters: ChaptersScreen,
   },
+  {
+  navigationOptions: {
+    headerStyle: {
+      ...Platform.select({
+        ios: {
+          shadowColor: 'black',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 20,
+        },
+      }),
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+      fontFamily: 'cinzel',
+      },
+    }
+  }
 );
 
 ChaptersStack.navigationOptions = {
@@ -67,7 +88,29 @@ ChaptersStack.navigationOptions = {
 
 const SettingsStack = createStackNavigator({
   Settings: SettingsScreen,
-});
+  },
+  {
+  navigationOptions: {
+    headerStyle: {
+      ...Platform.select({
+        ios: {
+          shadowColor: 'black',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 20,
+        },
+      }),
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+      fontFamily: 'cinzel',
+      },
+    }
+  }
+);
 
 /*
   * Changed label from 'Settings' to 'Meditations' below

@@ -8,23 +8,6 @@ import PlayerFooter from '../components/PlayerFooter';
 export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: 'COMMENTARIES',
-    headerStyle: {
-      ...Platform.select({
-        ios: {
-          shadowColor: 'black',
-          shadowOffset: { height: 3 },
-          shadowOpacity: 0.1,
-          shadowRadius: 3,
-        },
-        android: {
-          elevation: 20,
-        },
-      }),
-    },
-    headerTitleStyle: {
-      fontSize: 30,
-      fontFamily: 'cinzel',
-    },
   };
 
 constructor(props) {
