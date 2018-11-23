@@ -1,10 +1,7 @@
 import React from 'react';
-import { Alert, Image, Platform, ScrollView, StyleSheet, Text, FlatList, View, ImageBackground, TouchableWithoutFeedback, } from 'react-native';
-import { Navigation } from 'react-navigation'
-import { WebBrowser, Font, Icon } from 'expo';
-import { Controller } from 'react-redux';
-import { Ionicons } from '@expo/vector-icons';
-import { MonoText } from '../components/StyledText';
+import {
+  Platform, ScrollView, StyleSheet, Text, FlatList, View, ImageBackground, TouchableWithoutFeedback, } from 'react-native';
+import { Icon } from 'expo';
 import PlayerFooter from '../components/PlayerFooter';
 
 export default class HomeScreen extends React.Component {
@@ -30,11 +27,10 @@ export default class HomeScreen extends React.Component {
   }
 
   _onPressButton() {
-    this.props.navigation.navigate('Modal')
+    this.props.navigation.navigate('Modal');
   }
 
   render() {
-
     return (
       <View style={styles.container}>
         <ScrollView style={[styles.container, styles.contentContainer]}>
@@ -108,7 +104,7 @@ export default class HomeScreen extends React.Component {
 
         </ScrollView>
 
-        <View style={{flex:.12}}><PlayerFooter /></View>
+        <View style={{ flex: 0.12 }}><PlayerFooter /></View>
 
       </View>
     );

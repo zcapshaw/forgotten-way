@@ -1,6 +1,5 @@
 import React from 'react';
-import { Image, Platform, ScrollView, StyleSheet, Text, FlatList, SectionList, TouchableOpacity, View } from 'react-native';
-import { WebBrowser, Font } from 'expo';
+import { Image, Platform, StyleSheet, Text, SectionList, TouchableOpacity, View } from 'react-native';
 import PlayerFooter from '../components/PlayerFooter';
 
 /* Changed title from 'app.json' to 'Commentaries'
@@ -87,8 +86,8 @@ constructor(props) {
             keyExtractor={(item, index) => index}
           />
         </View>
-        
-        <View style={{flex:.12}}><PlayerFooter /></View>
+
+        <View style={{ flex: 0.12 }}><PlayerFooter /></View>
 
       </View>
     );
