@@ -4,7 +4,7 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ChaptersScreen from '../screens/ChaptersScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import CommentariesScreen from '../screens/CommentariesScreen';
 
 //The pre-loaded icons can be viewed @ https://ionicons.com/
 const HomeStack = createStackNavigator(
@@ -86,8 +86,8 @@ ChaptersStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const CommentariesStack = createStackNavigator({
+  Commentaries: CommentariesScreen,
   },
   {
   navigationOptions: {
@@ -116,7 +116,7 @@ const SettingsStack = createStackNavigator({
   * Changed label from 'Settings' to 'Meditations' below
   * At some point we should clean up the file names and classes that refer to 'Settings'
 */
-SettingsStack.navigationOptions = {
+CommentariesStack.navigationOptions = {
   tabBarLabel: 'COMMENTARIES',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -132,5 +132,5 @@ SettingsStack.navigationOptions = {
 export default createBottomTabNavigator({
   HomeStack,
   ChaptersStack,
-  SettingsStack,
+  CommentariesStack,
 });

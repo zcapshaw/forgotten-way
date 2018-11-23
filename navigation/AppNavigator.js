@@ -15,26 +15,5 @@ export default createStackNavigator(
 		initialRouteName: 'Main',
 		headerMode: 'none',
 		mode: 'modal',
-	},
-	{
-  navigationOptions: {
-    headerStyle: {
-      ...Platform.select({
-        ios: {
-          shadowColor: 'black',
-          shadowOffset: { height: 3 },
-          shadowOpacity: 0.1,
-          shadowRadius: 3,
-        },
-        android: {
-          elevation: 20,
-        },
-      }),
-    },
-    headerTitleStyle: {
-      fontSize: 30,
-      fontFamily: 'cinzel',
-      },
-    }
   }
 );
