@@ -4,6 +4,7 @@ import {
 import { Icon } from 'expo';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import PlayerFooter from '../components/PlayerFooter';
+import SectionLabel from '../components/SectionLabel';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -19,9 +20,7 @@ export default class HomeScreen extends Component {
       <View style={styles.container}>
         <ScrollView style={[styles.container, styles.contentContainer]}>
 
-          <View style={styles.sectionLabelContainer}>
-            <Text style={styles.sectionLabel}>DAILY QUOTE</Text>
-          </View>
+          <SectionLabel labelText={'DAILY QUOTE'} />
 
           <View style={styles.dailyQuoteContainer}>
             <Text style={styles.quoteText}>
@@ -34,9 +33,7 @@ export default class HomeScreen extends Component {
             </Text>
           </View>
 
-          <View style={styles.sectionLabelContainer}>
-            <Text style={styles.sectionLabel}>NEXT CHAPTER</Text>
-          </View>
+          <SectionLabel labelText={'NEXT CHAPTER'} />
 
           <TouchableWithoutFeedback onPress={this._onPressButton.bind(this)}>
             <View style={styles.nextChapter}>
@@ -60,9 +57,7 @@ export default class HomeScreen extends Component {
             </View>
           </TouchableWithoutFeedback>
 
-          <View style={styles.sectionLabelContainer}>
-            <Text style={styles.sectionLabel}>COMMENTARIES</Text>
-          </View>
+          <SectionLabel labelText={'COMMENTARIES'} />
 
           <View style={[styles.contentContainer, styles.commentariesContainer]}>
           <FlatList
@@ -106,18 +101,6 @@ const styles = StyleSheet.create({
   },
   commentariesContainer: {
     marginLeft: 0, //removing margin for clean off screen image flow
-  },
-  sectionLabelContainer: {
-    alignItems: 'flex-start',
-    marginHorizontal: 25,
-    marginTop: 15
-  },
-   sectionLabel: {
-    fontSize: 12,
-    fontFamily: 'lato-black',
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
   },
   dailyQuoteContainer: {
     alignItems: 'flex-start',
