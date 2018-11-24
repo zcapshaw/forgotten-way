@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, Text, SectionList, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, SectionList, TouchableOpacity, View } from 'react-native';
 import PlayerFooter from '../components/PlayerFooter';
 
 /* Changed title from 'app.json' to 'Commentaries'
@@ -70,7 +70,7 @@ constructor(props) {
           />
         </View>
 
-        <View style={{ flex: 0.12 }}><PlayerFooter /></View>
+        <View style={{ flex: 0.09 }}><PlayerFooter /></View>
 
       </View>
     );
