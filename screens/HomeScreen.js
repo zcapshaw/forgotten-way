@@ -5,6 +5,7 @@ import { Icon } from 'expo';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import PlayerFooter from '../components/PlayerFooter';
 import SectionLabel from '../components/SectionLabel';
+import TextBlock from '../components/TextBlock';
 
 export default class HomeScreen extends Component {
   static navigationOptions = {
@@ -21,17 +22,7 @@ export default class HomeScreen extends Component {
         <ScrollView style={[styles.container, styles.contentContainer]}>
 
           <SectionLabel labelText={'DAILY QUOTE'} />
-
-          <View style={styles.dailyQuoteContainer}>
-            <Text style={styles.quoteText}>
-            It is written that in the last days
-            the earth will tremble at the goodness
-            of God. So then I ask you, what kind of
-            goodness would make you weak in the knees
-            with gratitude and awe?
-            {'\n'}― Ted Dekker
-            </Text>
-          </View>
+          <TextBlock />
 
           <SectionLabel labelText={'NEXT CHAPTER'} />
 
@@ -101,20 +92,6 @@ const styles = StyleSheet.create({
   },
   commentariesContainer: {
     marginLeft: 0, //removing margin for clean off screen image flow
-  },
-  dailyQuoteContainer: {
-    alignItems: 'flex-start',
-    marginVertical: 10,
-    backgroundColor: '#2E2D2B',
-  },
-  quoteText: {
-    fontSize: 17,
-    fontFamily: 'lato-regular',
-    color: 'white',
-    lineHeight: 24,
-    textAlign: 'left',
-    paddingHorizontal: 25,
-    paddingVertical: 10,
   },
   nextChapter: {
     flex: 1,
