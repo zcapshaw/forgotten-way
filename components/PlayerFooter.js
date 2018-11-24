@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
+import { LinearGradient } from 'expo';
 
 class PlayerFooter extends React.Component {
 
@@ -23,21 +24,26 @@ class PlayerFooter extends React.Component {
 	render() {
 		return (
 		<View style={styles.playerFooter}>
-			<TouchableWithoutFeedback onPress={this._onPressExpandButton.bind(this)}>
-				<View style={styles.footerIcon}>
-					<Ionicons name="ios-arrow-up" size={32} color="white" />
-				</View>
-			</TouchableWithoutFeedback>
+			<LinearGradient
+				colors={['#414345', '#232526']}
+				style={styles.footerBackground}
+			>
+				<TouchableWithoutFeedback onPress={this._onPressExpandButton.bind(this)}>
+					<View style={styles.footerIcon}>
+						<Ionicons name="ios-arrow-up" size={32} color="white" />
+					</View>
+				</TouchableWithoutFeedback>
 
-			<Text style={{ color: 'white', fontSize: 16 }}>0:34/4:24</Text>
+				<Text style={{ color: 'white', fontSize: 16 }}>0:34/4:24</Text>
 
-			<TouchableWithoutFeedback onPress={this._onPressPlayButton.bind(this)}>
-				<View style={styles.footerIcon}>
-					{this.state.isPlaying ?
-					<Ionicons name="ios-pause" size={40} color="white" /> :
-					<Ionicons name="ios-play" size={40} color="white" />}
-				</View>
-			</TouchableWithoutFeedback>
+				<TouchableWithoutFeedback onPress={this._onPressPlayButton.bind(this)}>
+					<View style={styles.footerIcon}>
+						{this.state.isPlaying ?
+						<Ionicons name="ios-pause" size={40} color="white" /> :
+						<Ionicons name="ios-play" size={40} color="white" />}
+					</View>
+				</TouchableWithoutFeedback>
+			</LinearGradient>
 		</View>
 		);
 	}
@@ -45,14 +51,16 @@ class PlayerFooter extends React.Component {
 
 const styles = StyleSheet.create({
 	playerFooter: {
-		display: 'flex',
+		//display: 'flex',
+		flex: 1,
+	},
+	footerBackground: {
+		//display: 'flex',
 		flex: 1,
 		flexDirection: 'row',
 		alignItems: 'center',
 		justifyContent: 'space-between',
-		backgroundColor: '#545454',
 	},
-
 	footerIcon: {
 		paddingHorizontal: 25,
 	},

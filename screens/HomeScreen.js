@@ -68,7 +68,7 @@ export default class HomeScreen extends Component {
             />
           </View>
         </ScrollView>
-        <View style={{ flex: 0.12 }}><PlayerFooter /></View>
+        <View style={{ flex: 0.09 }}><PlayerFooter /></View>
       </View>
     );
   }
