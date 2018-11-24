@@ -1,31 +1,13 @@
 import React from 'react';
-import { Image, Platform, ScrollView, StyleSheet, Text, FlatList, SectionList, TouchableOpacity, View } from 'react-native';
-import { WebBrowser, Font } from 'expo';
+import { Image, Platform, StyleSheet, Text, SectionList, TouchableOpacity, View } from 'react-native';
 import PlayerFooter from '../components/PlayerFooter';
 
 /* Changed title from 'app.json' to 'Commentaries'
   * We should go back and update all the file names and classes too */
 
-export default class SettingsScreen extends React.Component {
+export default class CommentariesScreen extends React.Component {
   static navigationOptions = {
     title: 'COMMENTARIES',
-    headerStyle: {
-      ...Platform.select({
-        ios: {
-          shadowColor: 'black',
-          shadowOffset: { height: 3 },
-          shadowOpacity: 0.1,
-          shadowRadius: 3,
-        },
-        android: {
-          elevation: 20,
-        },
-      }),
-    },
-    headerTitleStyle: {
-      fontSize: 30,
-      fontFamily: 'cinzel',
-    },
   };
 
 constructor(props) {
@@ -87,8 +69,8 @@ constructor(props) {
             keyExtractor={(item, index) => index}
           />
         </View>
-        
-        <View style={{flex:.12}}><PlayerFooter /></View>
+
+        <View style={{ flex: 0.12 }}><PlayerFooter /></View>
 
       </View>
     );

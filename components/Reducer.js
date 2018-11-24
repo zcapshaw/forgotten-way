@@ -1,6 +1,6 @@
-export default (state = {text:'isPlaying', status: false}, action) => {
+export default (state = { text: 'isPlaying', status: false }, action) => {
 	switch (action.type) {
 		default:
-			return state
+			return state;
 	}
-}
+};

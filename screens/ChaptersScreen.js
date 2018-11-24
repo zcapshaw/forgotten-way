@@ -6,23 +6,6 @@ import PlayerFooter from '../components/PlayerFooter';
 export default class ChaptersScreen extends React.Component {
   static navigationOptions = {
     title: 'CHAPTERS',
-    headerStyle: {
-      ...Platform.select({
-        ios: {
-          shadowColor: 'black',
-          shadowOffset: { height: 3 },
-          shadowOpacity: 0.1,
-          shadowRadius: 3,
-        },
-        android: {
-          elevation: 20,
-        },
-      }),
-    },
-    headerTitleStyle: {
-      fontSize: 30,
-      fontFamily: 'cinzel',
-    },
   };
 
   constructor(props) {
@@ -84,7 +67,7 @@ export default class ChaptersScreen extends React.Component {
         />
       </ScrollView>
 
-      <View style={{flex:.12}}><PlayerFooter /></View>
+      <View style={{ flex: 0.12 }}><PlayerFooter /></View>
 
     </View>
     );

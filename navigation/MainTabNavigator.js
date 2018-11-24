@@ -1,16 +1,38 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ChaptersScreen from '../screens/ChaptersScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import CommentariesScreen from '../screens/CommentariesScreen';
 
 //The pre-loaded icons can be viewed @ https://ionicons.com/
-const HomeStack = createStackNavigator({
-  Home: HomeScreen,
-});
+const HomeStack = createStackNavigator(
+  {
+    Home: HomeScreen,
+  },
+  {
+  navigationOptions: {
+    headerStyle: {
+      ...Platform.select({
+        ios: {
+          shadowColor: 'black',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 20,
+        },
+      }),
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+      fontFamily: 'cinzel',
+      },
+    }
+  }
+);
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'HOME',
@@ -28,7 +50,29 @@ HomeStack.navigationOptions = {
 
 const ChaptersStack = createStackNavigator({
   Chapters: ChaptersScreen,
-});
+  },
+  {
+  navigationOptions: {
+    headerStyle: {
+      ...Platform.select({
+        ios: {
+          shadowColor: 'black',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 20,
+        },
+      }),
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+      fontFamily: 'cinzel',
+      },
+    }
+  }
+);
 
 ChaptersStack.navigationOptions = {
   tabBarLabel: 'CHAPTERS',
@@ -42,15 +86,37 @@ ChaptersStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
-});
+const CommentariesStack = createStackNavigator({
+  Commentaries: CommentariesScreen,
+  },
+  {
+  navigationOptions: {
+    headerStyle: {
+      ...Platform.select({
+        ios: {
+          shadowColor: 'black',
+          shadowOffset: { height: 3 },
+          shadowOpacity: 0.1,
+          shadowRadius: 3,
+        },
+        android: {
+          elevation: 20,
+        },
+      }),
+    },
+    headerTitleStyle: {
+      fontSize: 30,
+      fontFamily: 'cinzel',
+      },
+    }
+  }
+);
 
 /*
   * Changed label from 'Settings' to 'Meditations' below
   * At some point we should clean up the file names and classes that refer to 'Settings'
 */
-SettingsStack.navigationOptions = {
+CommentariesStack.navigationOptions = {
   tabBarLabel: 'COMMENTARIES',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -66,5 +132,5 @@ SettingsStack.navigationOptions = {
 export default createBottomTabNavigator({
   HomeStack,
   ChaptersStack,
-  SettingsStack,
+  CommentariesStack,
 });

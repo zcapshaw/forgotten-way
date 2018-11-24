@@ -10,7 +10,7 @@ const ModalStack = createStackNavigator({
 	{
 	headerMode: 'none'
 	},
-)
+);
 
 ModalStack.navigationOptions = {
 	header: null,
