@@ -1,74 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { ScrollView, StyleSheet, FlatList, Text, Platform, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import PlayerFooter from '../components/PlayerFooter';
+import data from '../constants/ChaptersList.json';
 
-export default class ChaptersScreen extends React.Component {
+export default class ChaptersScreen extends Component {
   static navigationOptions = {
     title: 'CHAPTERS',
   };
 
+//Grabs the data for the list from ChaptersList.json
   constructor(props) {
     super(props);
     this.state = {
-      data: [
-        { key: 'Chapter 1', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-        { key: 'Chapter 2', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-        { key: 'Chapter 3', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-        { key: 'Chapter 4', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-        { key: 'Chapter 5', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-        { key: 'Chapter 6', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-        { key: 'Chapter 7', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-        { key: 'Chapter 8', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-        { key: 'Chapter 9', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-        { key: 'Chapter 10', subtext: 'Lorem Ipsum Dolor Sit Amet' },
-      ]
+      data,
     };
   }
-
 
   render() {
     return (
       <View style={styles.container}>
-      <ScrollView style={styles.scrollView}>
-        <FlatList
-          contentContainerStyle={styles.flatList}
-          data={this.state.data}
+        <ScrollView style={styles.scrollView}>
+          <FlatList
+            contentContainerStyle={styles.flatList}
+            data={this.state.data}
 
-          /* Function below adds conditional formatting to chapters
-          based on position in the list */
-          renderItem={({ item, index }) => {
-            if (index < 2) { // First two use itemComplete styling
-              return (
-                <View style={[styles.chapterTile, styles.itemComplete]}>
+            /* Function below adds conditional formatting to chapters
+            based on position in the list */
+            renderItem={({ item, index }) => {
+              if (index < 2) { // First two use itemComplete styling
+                return (
+                  <View style={[styles.chapterTile, styles.itemComplete]}>
+                    <View style={styles.item}>
+                      <Text style={styles.chapterText}>{ item.key }</Text>;
+                      <Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
+                    </View>
+                    <View style={styles.icon}>
+                      <Ionicons name="md-checkmark-circle" size={32} color="white" />
+                    </View>
+                  </View>
+                );
+              }
+              return ( // else use item styling
+                <View style={styles.chapterTile}>
                   <View style={styles.item}>
                     <Text style={styles.chapterText}>{ item.key }</Text>;
                     <Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
                   </View>
                   <View style={styles.icon}>
-                    <Ionicons name="md-checkmark-circle" size={32} color="white" />
+                    <Ionicons name="ios-play" size={32} color="white" />
                   </View>
                 </View>
               );
             }
-            return ( // else use item styling
-              <View style={styles.chapterTile}>
-                <View style={styles.item}>
-                  <Text style={styles.chapterText}>{ item.key }</Text>;
-                  <Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
-                </View>
-                <View style={styles.icon}>
-                  <Ionicons name="ios-play" size={32} color="white" />
-                </View>
-              </View>
-            );
           }
-        }
-        />
-      </ScrollView>
-
+          />
+        </ScrollView>
       <View style={{ flex: 0.09 }}><PlayerFooter /></View>
-
     </View>
     );
   }
