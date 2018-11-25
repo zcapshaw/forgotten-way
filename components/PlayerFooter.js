@@ -8,26 +8,17 @@ import { LinearGradient } from 'expo';
 
 class PlayerFooter extends React.Component {
 
-/*	constructor(props) {
-		super(props);
-		this.props.isPlaying = false;
-	}*/
-
 	_onPressExpandButton() {
 		this.props.navigation.navigate('Modal');
 	}
 
 	_onPressPlayButton() {
-/*		this.setState(previousState => (
-			{ isPlaying: !previousState.isPlaying }
-		));*/
-		dispatch({ type: 'PLAY_PAUSE' });
+		this.props.dispatch({
+			type: 'PLAY_PAUSE'
+		});
 	}
 
 	render() {
-		
-		console.log(this.props);
-
 		return (
 		<View style={styles.playerFooter}>
 			<LinearGradient
@@ -42,7 +33,7 @@ class PlayerFooter extends React.Component {
 
 				<Text style={{ color: 'white', fontSize: 16 }}>0:34/4:24</Text>
 
-				<TouchableWithoutFeedback onPress={this.props.onClick.bind(this)}>
+				<TouchableWithoutFeedback onPress={() => this._onPressPlayButton()}>
 					<View style={styles.footerIcon}>
 						{this.props.isPlaying ?
 						<Ionicons name="ios-pause" size={40} color="white" /> :
@@ -55,19 +46,12 @@ class PlayerFooter extends React.Component {
 	}
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 	return { isPlaying: state.isPlaying };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		onClick: () => dispatch({ type: 'PLAY_PAUSE' })
-	};
 };
 
 const playerState = connect(
 	mapStateToProps,
-	mapDispatchToProps
 )(PlayerFooter);
 
 const styles = StyleSheet.create({

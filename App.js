@@ -9,18 +9,6 @@ import reducer from './reducers/index';
 
 //Setup app redux store from reducers/index
 const store = createStore(reducer);
-console.log(store.getState()); //reviewing state for testing
-
-//testing dispatches for state changes
-store.dispatch({
-  type: 'PLAY_PAUSE',
-});
-
-store.dispatch({
-  type: 'ENGAGED',
-});
-
-console.log(store.getState()); //reviewing state for testing
 
 export default class App extends Component {
   state = {
