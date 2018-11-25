@@ -56,7 +56,7 @@ export default class ChaptersScreen extends Component {
           }
           />
         </ScrollView>
-      <View style={{ flex: 0.09 }}><PlayerFooter /></View>
+      <View><PlayerFooter /></View>
     </View>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,72 +8,65 @@ import { LinearGradient } from 'expo';
 
 class PlayerFooter extends React.Component {
 
-/*	constructor(props) {
-		super(props);
-		this.props.isPlaying = false;
-	}*/
-
 	_onPressExpandButton() {
 		this.props.navigation.navigate('Modal');
 	}
 
 	_onPressPlayButton() {
-/*		this.setState(previousState => (
-			{ isPlaying: !previousState.isPlaying }
-		));*/
-		dispatch({ type: 'PLAY_PAUSE' });
+		this.props.dispatch({
+			type: 'PLAY_PAUSE'
+		});
 	}
 
 	render() {
-		
-		console.log(this.props);
+		if (!this.props.isEngaged) {
+			return <View />;
+		}
 
 		return (
-		<View style={styles.playerFooter}>
-			<LinearGradient
-				colors={['#414345', '#232526']}
-				style={styles.footerBackground}
-			>
-				<TouchableWithoutFeedback onPress={this._onPressExpandButton.bind(this)}>
-					<View style={styles.footerIcon}>
-						<Ionicons name="ios-arrow-up" size={32} color="white" />
-					</View>
-				</TouchableWithoutFeedback>
+			<View style={[styles.playerFooter]}>
+				<LinearGradient
+					colors={['#414345', '#232526']}
+					style={styles.footerBackground}
+				>
+					<TouchableWithoutFeedback onPress={this._onPressExpandButton.bind(this)}>
+						<View style={styles.footerIcon}>
+							<Ionicons name="ios-arrow-up" size={32} color="white" />
+						</View>
+					</TouchableWithoutFeedback>
 
-				<Text style={{ color: 'white', fontSize: 16 }}>0:34/4:24</Text>
+					<Text style={{ color: 'white', fontSize: 16 }}>0:34/4:24</Text>
 
-				<TouchableWithoutFeedback onPress={this.props.onClick.bind(this)}>
-					<View style={styles.footerIcon}>
-						{this.props.isPlaying ?
-						<Ionicons name="ios-pause" size={40} color="white" /> :
-						<Ionicons name="ios-play" size={40} color="white" />}
-					</View>
-				</TouchableWithoutFeedback>
-			</LinearGradient>
-		</View>
+					<TouchableWithoutFeedback onPress={() => this._onPressPlayButton()}>
+						<View style={styles.footerIcon}>
+							{this.props.isPlaying ?
+							<Ionicons name="ios-pause" size={40} color="white" /> :
+							<Ionicons name="ios-play" size={40} color="white" />}
+						</View>
+					</TouchableWithoutFeedback>
+				</LinearGradient>
+			</View>
 		);
 	}
 }
 
-const mapStateToProps = (state, ownProps) => {
-	return { isPlaying: state.isPlaying };
-};
-
-const mapDispatchToProps = (dispatch, ownProps) => {
-	return {
-		onClick: () => dispatch({ type: 'PLAY_PAUSE' })
-	};
+const mapStateToProps = (state) => {
+	return { isPlaying: state.isPlaying, isEngaged: state.isEngaged };
 };
 
 const playerState = connect(
 	mapStateToProps,
-	mapDispatchToProps
 )(PlayerFooter);
 
 const styles = StyleSheet.create({
 	playerFooter: {
 		//display: 'flex',
-		flex: 1,
+		//flex: 1,
+		position: 'absolute',
+		right: 0,
+		left: 0,
+		bottom: 0,
+		height: 50
 	},
 	footerBackground: {
 		//display: 'flex',
