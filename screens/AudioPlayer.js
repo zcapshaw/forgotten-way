@@ -11,7 +11,7 @@ import { LinearGradient } from 'expo';
 
 export default class AudioPlayer extends React.Component {
 
-  constructor(props) {
+  constructor(props){
 		super(props);
 		this.state = { isPlaying: false };
 	}

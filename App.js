@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Navigation } from 'react-navigation';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import AppReducer from './components/Reducer';
+import reducer from './reducers/index';
 
-const store = createStore(AppReducer);
+//Setup app redux store from reducers/index
+const store = createStore(reducer);
+console.log(store.getState()); //reviewing state for testing
 
-export default class App extends React.Component {
+//testing dispatches for state changes
+store.dispatch({
+  type: 'PLAY_PAUSE',
+});
+
+store.dispatch({
+  type: 'ENGAGED',
+});
+
+console.log(store.getState()); //reviewing state for testing
+
+export default class App extends Component {
   state = {
     isLoadingComplete: false,
   };
@@ -58,6 +71,8 @@ export default class App extends React.Component {
         </Provider>
       );
   }
+
+
 }
 
 const styles = StyleSheet.create({
