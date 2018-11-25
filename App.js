@@ -5,9 +5,20 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import AppReducer from './components/Reducer';
+import reducer from './reducers/index';
 
-const store = createStore(AppReducer);
+const store = createStore(reducer);
+console.log(store.getState());
+
+store.dispatch({
+  type: 'PLAY_PAUSE',
+});
+
+store.dispatch({
+  type: 'ENGAGED',
+});
+
+console.log(store.getState());
 
 export default class App extends React.Component {
   state = {
@@ -58,6 +69,8 @@ export default class App extends React.Component {
         </Provider>
       );
   }
+
+
 }
 
 const styles = StyleSheet.create({
