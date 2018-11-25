@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Text, View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { connect } from 'react-redux';
 import { LinearGradient } from 'expo';
 // import TrackPlayer from 'react-native-track-player';
 
@@ -9,20 +10,24 @@ import { LinearGradient } from 'expo';
 	// The player is ready to be used
 });*/
 
-export default class AudioPlayer extends React.Component {
+class AudioPlayer extends React.Component {
 
-  constructor(props){
-		super(props);
-		this.state = { isPlaying: false };
-	}
+  // constructor(props){
+	// 	super(props);
+	// 	this.state = { isPlaying: false };
+	// }
 
   _onPressPlayButton() {
-    this.setState(previousState => (
-      { isPlaying: !previousState.isPlaying }
-    ));
-  }
+		this.props.dispatch({
+			type: 'PLAY_PAUSE'
+		});
+	}
+
 
   render() {
+
+    console.log(this.props);
+
     return (
       <View style={styles.container}>
         <View style={styles.transparentContainer} />
@@ -41,9 +46,9 @@ export default class AudioPlayer extends React.Component {
             <Text style={styles.chapterLabel}> Chapter 3 </Text>
             <Text style={[styles.chapterLabel, styles.subtext]}> The Path of Yeshua </Text>
 
-            <TouchableWithoutFeedback onPress={this._onPressPlayButton.bind(this)}>
+            <TouchableWithoutFeedback onPress={() => this._onPressPlayButton()}>
               <View style={styles.footerIcon}>
-                {this.state.isPlaying ?
+                {this.props.isPlaying ?
                   <Ionicons name="ios-pause" size={120} color="white" /> :
                   <Ionicons name="ios-play" size={120} color="white" />}
               </View>
@@ -55,6 +60,17 @@ export default class AudioPlayer extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  //console.log(state.isPlaying);
+	return { isPlaying: state.isPlaying };
+};
+
+const playerState = connect(
+	mapStateToProps,
+)(AudioPlayer);
+
+export default playerState;
 
 const styles = StyleSheet.create({
   container: {
