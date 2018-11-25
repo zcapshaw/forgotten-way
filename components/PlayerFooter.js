@@ -62,7 +62,9 @@ const styles = StyleSheet.create({
 	playerFooter: {
 		//display: 'flex',
 		//flex: 1,
-		position: 'fixed',
+		position: 'absolute',
+		right: 0,
+		left: 0,
 		bottom: 0,
 		height: 50
 	},
