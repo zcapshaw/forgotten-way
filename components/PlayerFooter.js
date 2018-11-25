@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Image } from 'react-native';
 import { connect } from 'react-redux';
 import { withNavigation } from 'react-navigation';
 import { Ionicons } from '@expo/vector-icons';
@@ -24,7 +24,7 @@ class PlayerFooter extends React.Component {
 		}
 
 		return (
-			<View style={[styles.playerFooter, this.props.isEngaged && styles.playerHide]}>
+			<View style={[styles.playerFooter]}>
 				<LinearGradient
 					colors={['#414345', '#232526']}
 					style={styles.footerBackground}
@@ -61,7 +61,10 @@ const playerState = connect(
 const styles = StyleSheet.create({
 	playerFooter: {
 		//display: 'flex',
-		flex: 1,
+		//flex: 1,
+		position: 'fixed',
+		bottom: 0,
+		height: 50
 	},
 	footerBackground: {
 		//display: 'flex',
