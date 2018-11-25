@@ -19,35 +19,39 @@ class PlayerFooter extends React.Component {
 	}
 
 	render() {
+		if (!this.props.isEngaged) {
+			return <View />;
+		}
+
 		return (
-		<View style={styles.playerFooter}>
-			<LinearGradient
-				colors={['#414345', '#232526']}
-				style={styles.footerBackground}
-			>
-				<TouchableWithoutFeedback onPress={this._onPressExpandButton.bind(this)}>
-					<View style={styles.footerIcon}>
-						<Ionicons name="ios-arrow-up" size={32} color="white" />
-					</View>
-				</TouchableWithoutFeedback>
+			<View style={[styles.playerFooter, this.props.isEngaged && styles.playerHide]}>
+				<LinearGradient
+					colors={['#414345', '#232526']}
+					style={styles.footerBackground}
+				>
+					<TouchableWithoutFeedback onPress={this._onPressExpandButton.bind(this)}>
+						<View style={styles.footerIcon}>
+							<Ionicons name="ios-arrow-up" size={32} color="white" />
+						</View>
+					</TouchableWithoutFeedback>
 
-				<Text style={{ color: 'white', fontSize: 16 }}>0:34/4:24</Text>
+					<Text style={{ color: 'white', fontSize: 16 }}>0:34/4:24</Text>
 
-				<TouchableWithoutFeedback onPress={() => this._onPressPlayButton()}>
-					<View style={styles.footerIcon}>
-						{this.props.isPlaying ?
-						<Ionicons name="ios-pause" size={40} color="white" /> :
-						<Ionicons name="ios-play" size={40} color="white" />}
-					</View>
-				</TouchableWithoutFeedback>
-			</LinearGradient>
-		</View>
+					<TouchableWithoutFeedback onPress={() => this._onPressPlayButton()}>
+						<View style={styles.footerIcon}>
+							{this.props.isPlaying ?
+							<Ionicons name="ios-pause" size={40} color="white" /> :
+							<Ionicons name="ios-play" size={40} color="white" />}
+						</View>
+					</TouchableWithoutFeedback>
+				</LinearGradient>
+			</View>
 		);
 	}
 }
 
 const mapStateToProps = (state) => {
-	return { isPlaying: state.isPlaying };
+	return { isPlaying: state.isPlaying, isEngaged: state.isEngaged };
 };
 
 const playerState = connect(

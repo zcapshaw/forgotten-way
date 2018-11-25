@@ -21,6 +21,9 @@ class AudioPlayer extends React.Component {
 		this.props.dispatch({
 			type: 'PLAY_PAUSE'
 		});
+    this.props.dispatch({
+			type: 'ENGAGED'
+		});
 	}
 
 
@@ -63,7 +66,7 @@ class AudioPlayer extends React.Component {
 
 const mapStateToProps = (state) => {
   //console.log(state.isPlaying);
-	return { isPlaying: state.isPlaying };
+	return { isPlaying: state.isPlaying, isEngaged: state.isEngaged };
 };
 
 const playerState = connect(
