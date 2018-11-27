@@ -14,11 +14,11 @@
   },
   "dependencies": {
     "@expo/samples": "2.1.1",
-    "expo": "^31.0.5",
+    "expo": "^30.0.1",
     "react": "16.6.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
     "react-native-track-player": "^1.0.0",
-    "react-navigation": "^3.0.0",
+    "react-navigation": "^2.18.3",
     "react-redux": "^5.1.1",
     "redux": "^4.0.1"
   },
