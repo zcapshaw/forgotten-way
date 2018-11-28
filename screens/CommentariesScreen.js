@@ -17,11 +17,20 @@ constructor(props) {
   };
 }
 
+//When an item is clicked, dispatch that items details to the reducer
 _onPressItem(item) {
-  console.log(item.name);
+  this.props.dispatch({
+    type: 'LOAD_AUDIO',
+    name: item.name,
+    subtext: item.subtext,
+    image: item.image,
+    audio: item.audio, 
+  });
+  this.props.navigation.navigate('Modal');
 }
 
  render() {
+    console.log(this.props.loadedAudio);
     return (
       <View style={styles.container}>
         <View style={styles.sectionListContainer}>
@@ -58,7 +67,7 @@ _onPressItem(item) {
 }
 
 const mapStateToProps = (state) => {
-  return { isPlaying: state.isPlaying, isEngaged: state.isEngaged };
+  return { loadedAudio: state.loadedAudio };
 };
 
 
