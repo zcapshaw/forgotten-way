@@ -16,6 +16,10 @@ constructor(props) {
   };
 }
 
+_onPressItem(item) {
+  console.log(item.name);
+}
+
  render() {
     return (
       <View style={styles.container}>
@@ -27,17 +31,19 @@ constructor(props) {
             <SectionLabel labelText={section.title} />}
 
             renderItem={({ item }) =>
+            <TouchableOpacity onPress={() => this._onPressItem(item)}>
             <View style={[styles.sectionListContainer, styles.contentContainer]}>
-                <TouchableOpacity onPress={() => {}}>
+                
                   <Image style={styles.image} source={{ uri: item.image }} />
-                </TouchableOpacity>
+                
                 <View style={styles.content}>
                   <View style={styles.contentHeader}>
                     <Text style={styles.name}>{item.name}</Text>
                     <Text style={styles.subtext}>{item.subtext}</Text>
                   </View>
                 </View>
-              </View>}
+              </View>
+              </TouchableOpacity>}
 
             keyExtractor={(item, index) => index}
           />
