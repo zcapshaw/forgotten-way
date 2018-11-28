@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Image, StyleSheet, Text, SectionList, TouchableOpacity, View } from 'react-native';
+import { connect } from 'react-redux';
 import PlayerFooter from '../components/PlayerFooter';
 import SectionLabel from '../components/SectionLabel';
 import data from '../constants/CommentariesList.json';
 
-export default class CommentariesScreen extends React.Component {
+class CommentariesScreen extends Component {
   static navigationOptions = {
     title: 'COMMENTARIES',
   };
@@ -56,6 +57,11 @@ _onPressItem(item) {
 	}
 }
 
+const mapStateToProps = (state) => {
+  return { isPlaying: state.isPlaying, isEngaged: state.isEngaged };
+};
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -99,3 +105,5 @@ const styles = StyleSheet.create({
     paddingTop: 5,
   },
 });
+
+export default connect(mapStateToProps)(CommentariesScreen);
