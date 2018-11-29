@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, FlatList, Text, Platform, View, TouchableOpacity } from 'react-native';
+import { ScrollView, StyleSheet, FlatList, Text, Platform,
+	View, TouchableWithoutFeedback } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { connect } from 'react-redux';
 import PlayerFooter from '../components/PlayerFooter';
@@ -10,7 +11,7 @@ class ChaptersScreen extends Component {
 		title: 'CHAPTERS',
 	};
 
-//Grabs the data for the list from ChaptersList.json
+	//Grabs the data for the list from ChaptersList.json
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -18,7 +19,7 @@ class ChaptersScreen extends Component {
 		};
 	}
 
-		//When an item is clicked, dispatch that items details to the reducer
+	//When an item is clicked, dispatch that items details to the reducer
 	_onPressItem(item) {
 		this.props.dispatch({
 			type: 'LOAD_AUDIO',
@@ -39,37 +40,39 @@ class ChaptersScreen extends Component {
 
 						/* Function below adds conditional formatting to chapters
 						based on position in the list */
-						renderItem={({ item, index }) => {
-							if (index < 2) { // First two use itemComplete styling
+						renderItem={({ item }) => {
+							if (item.key <= 2) { // First two use itemComplete styling
 								return (
-									<TouchableOpacity onPress={() => this._onPressItem(item)}>
+									<TouchableWithoutFeedback onPress={() => this._onPressItem(item)}>
 										<View style={[styles.chapterTile, styles.itemComplete]}>
 											<View style={styles.item}>
-												<Text style={styles.chapterText}>{ item.key }</Text>;
+												<Text style={styles.chapterText}>{ item.name }</Text>;
 												<Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
 											</View>
 											<View style={styles.icon}>
 												<Ionicons name="md-checkmark-circle" size={32} color="white" />
 											</View>
 										</View>
-									</TouchableOpacity>
+									</TouchableWithoutFeedback>
 								);
 							}
 							return ( // else use item styling
-								<TouchableOpacity onPress={() => this._onPressItem(item)}>
+								<TouchableWithoutFeedback onPress={() => this._onPressItem(item)}>
 									<View style={styles.chapterTile}>
 										<View style={styles.item}>
-											<Text style={styles.chapterText}>{ item.key }</Text>;
+											<Text style={styles.chapterText}>{ item.name }</Text>;
 											<Text style={styles.chapterSubtext}>{ item.subtext }</Text>;
 										</View>
 										<View style={styles.icon}>
 											<Ionicons name="ios-play" size={32} color="white" />
 										</View>
 									</View>
-								</TouchableOpacity>
+								</TouchableWithoutFeedback>
 							);
 						}
 					}
+					//Added because of error thrown because it wanted index as string
+					keyExtractor={(item, index) => index.toString()}
 					/>
 				</ScrollView>
 			<View><PlayerFooter /></View>

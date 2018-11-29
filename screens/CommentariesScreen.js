@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Image, StyleSheet, Text, SectionList, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, SectionList,
+			TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 import PlayerFooter from '../components/PlayerFooter';
 import SectionLabel from '../components/SectionLabel';
@@ -42,21 +43,20 @@ class CommentariesScreen extends Component {
 						<SectionLabel labelText={section.title} />}
 
 						renderItem={({ item }) =>
-						<TouchableOpacity onPress={() => this._onPressItem(item)}>
-						<View style={[styles.sectionListContainer, styles.contentContainer]}>
-								
+							<TouchableOpacity onPress={() => this._onPressItem(item)}>
+								<View style={[styles.sectionListContainer, styles.contentContainer]}>
 									<Image style={styles.image} source={{ uri: item.image }} />
-								
-								<View style={styles.content}>
-									<View style={styles.contentHeader}>
-										<Text style={styles.name}>{item.name}</Text>
-										<Text style={styles.subtext}>{item.subtext}</Text>
+									<View style={styles.content}>
+										<View style={styles.contentHeader}>
+											<Text style={styles.name}>{item.name}</Text>
+											<Text style={styles.subtext}>{item.subtext}</Text>
+										</View>
 									</View>
 								</View>
-							</View>
-							</TouchableOpacity>}
+							</TouchableOpacity>
+						}
 
-						keyExtractor={(item, index) => index}
+						keyExtractor={(item, index) => index.toString()}
 					/>
 				</View>
 
@@ -67,6 +67,8 @@ class CommentariesScreen extends Component {
 	}
 }
 
+/*This is essentially used for testing, as this screen doesn't
+need to access the store*/
 const mapStateToProps = (state) => {
 	return { loadedAudio: state.loadedAudio };
 };
